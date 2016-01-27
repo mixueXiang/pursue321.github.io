@@ -4,26 +4,23 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Hello World | the blog of xmx</title>
+    <title>初识HTML的websocket | the blog of xmx</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="xmx">
     
 
     
-    <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+    <meta name="description" content="众所周知，webSocket是HTML5连接性领域中的一种自然的全双工、双向、单套接字连接。而HTTP从根本上来讲，还是半双工的协议，也就是说，在同一时刻流量只能单向流动：客户端向服务器发送请求（单向），然后服务器相应客户端的请求（单向），这种半双工的效率很低，并且不是为现代实时web所设计的。随着互联网技术的发展，当前越来越多的应用（例如聊天、大型多人在线游戏、股票交易应用程序等）希望能够及时获">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2015/11/06/hello-world/index.html">
+<meta property="og:title" content="初识HTML的websocket">
+<meta property="og:url" content="http://yoursite.com/2015/11/13/初识HTML5的websocket/index.html">
 <meta property="og:site_name" content="the blog of xmx">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
-<meta property="og:updated_time" content="2015-11-06T05:26:47.361Z">
+<meta property="og:description" content="众所周知，webSocket是HTML5连接性领域中的一种自然的全双工、双向、单套接字连接。而HTTP从根本上来讲，还是半双工的协议，也就是说，在同一时刻流量只能单向流动：客户端向服务器发送请求（单向），然后服务器相应客户端的请求（单向），这种半双工的效率很低，并且不是为现代实时web所设计的。随着互联网技术的发展，当前越来越多的应用（例如聊天、大型多人在线游戏、股票交易应用程序等）希望能够及时获">
+<meta property="og:updated_time" content="2015-11-06T05:26:57.301Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="twitter:title" content="初识HTML的websocket">
+<meta name="twitter:description" content="众所周知，webSocket是HTML5连接性领域中的一种自然的全双工、双向、单套接字连接。而HTTP从根本上来讲，还是半双工的协议，也就是说，在同一时刻流量只能单向流动：客户端向服务器发送请求（单向），然后服务器相应客户端的请求（单向），这种半双工的效率很低，并且不是为现代实时web所设计的。随着互联网技术的发展，当前越来越多的应用（例如聊天、大型多人在线游戏、股票交易应用程序等）希望能够及时获">
 
     
     <link rel="alternative" href="http://github.com/pursue321.atom## RSS address." title="the blog of xmx" type="application/atom+xml">
@@ -83,14 +80,14 @@ Quick">
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/11/06/hello-world/" title="Hello World" itemprop="url">Hello World</a>
+      <a href="/2015/11/13/初识HTML5的websocket/" title="初识HTML的websocket" itemprop="url">初识HTML的websocket</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="xmx" target="_blank" itemprop="author">xmx</a>
 		
   <p class="article-time">
-    <time datetime="2015-11-06T05:26:47.361Z" itemprop="datePublished"> 发表于 2015-11-06</time>
+    <time datetime="2015-11-13T08:43:14.705Z" itemprop="datePublished"> 发表于 2015-11-13</time>
     
   </p>
 </header>
@@ -99,19 +96,15 @@ Quick">
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick_Start"><span class="toc-number">1.</span> <span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create_a_new_post"><span class="toc-number">1.1.</span> <span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run_server"><span class="toc-number">1.2.</span> <span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate_static_files"><span class="toc-number">1.3.</span> <span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy_to_remote_sites"><span class="toc-number">1.4.</span> <span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、HTTP轮询、长轮询、流化"><span class="toc-number">1.</span> <span class="toc-text">一、HTTP轮询、长轮询、流化</span></a></li></ol>
 		
 		</div>
 		
-		<p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick_Start">Quick Start</h2><h3 id="Create_a_new_post">Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run_server">Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate_static_files">Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy_to_remote_sites">Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+		<p>　众所周知，webSocket是HTML5连接性领域中的一种自然的全双工、双向、单套接字连接。而HTTP从根本上来讲，还是半双工的协议，也就是说，在同一时刻流量只能单向流动：客户端向服务器发送请求（单向），然后服务器相应客户端的请求（单向），这种半双工的效率很低，并且不是为现代实时web所设计的。随着互联网技术的发展，当前越来越多的应用（例如聊天、大型多人在线游戏、股票交易应用程序等）希望能够及时获取服务端提供的数据，甚至希望能够达到接近实时的数据交换。为达到此目的，通常采用的技术主要有轮询、长轮询、流等，而伴随着HTML5的出现，相对更优异的WebSocket方案也应运而生，它基于标准，与语言无关，且能在其上自由灵活的增加标准协议层次。当使用webSocket时，你的HTTP请求变成打开webSocket连接的单一请求，并且重用从客户端到服务器以及服务器到客户端的同一连接.为了更加了解webSocket的出现背景，我们首先简单地介绍下非webSocket的相关方法。</p>
+<h3 id="一、HTTP轮询、长轮询、流化">一、HTTP轮询、长轮询、流化</h3><p>　　轮询（polling）是一种定时的同步调用，客户端向服务器发送请求查看是否有可用的新信息。请求以固定的时间间隔发出，不管服务器是否有信息，客户端都会得到响应：当有可用信息，服务器将该信息发送到客户端；若没有，服务器返回一个拒绝响应，客户端关闭连接。这种技术模拟其他服务器端“推”技术（最流行的是Comet），本质上就是推迟完成HTTP响应，向客户端提交信息。轮询适用于，当你知道信息交付的精确间隔时，它就是一个比较好的解决方案，因为你可以同步客户 端，只有你知道服务器上有可用信息时发送请求。然而，实时数据并不总是可预测的，因此发出不必要的请求、打开过多连接是不可避免的。</p>
+<p>　　长轮询(long polling)是另一种流行的通信方法，客户端向服务器请求信息，并在设定的时间段内打开一个连接。服务器如果没有任何消息，会一直保持请求打开，直到有客户端可用的信息，或者指定的超时时间截止为止，这时客户端重新向服务器请求信息。长轮询也称作Comet或者反向AJAX。长轮询的一个问题是，当信息量很大时，它相对于传统轮询并没有明显的性能优势，因为客户端必须频繁的重连到服务器以读取新信息，造成网络的表现和快速轮询相似。另一个问题是，长轮询缺乏标准实现。</p>
+<p>　　流化，即客户端发送一个请求，服务器发送并维护一个持续更新和保持打开的开放响应。每当服务器有需要交付给客户端的信息时，它就更新响应。从表面上看，流化是能够适应不可预测的信息交付的极佳方案，但是服务器从不发出完成HTTP响应的请求，从而使连接一直保持打开。在这种情况下，代理和防火墙可能缓存响应，导致信息交付的延迟增加。因此，许多流化的尝试对于存在防火墙和代理的网站是不友好的。</p>
+<p>　　上述几种方法都提供了近乎实时的通信，但他们也涉及HTTP请求和响应首标，包含了许多不必要的首标数据和延迟。除此之外，在每一种情况下，客户端都必须等待请求返回，才能发出后续请求，而这显著的增加了延迟。<br>　<br>    未完待续…</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -124,7 +117,7 @@ Quick">
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2015/11/06/hello-world/" data-title="Hello World | the blog of xmx" data-tsina="3941548463" class="share clearfix">
+	  <div data-url="http://yoursite.com/2015/11/13/初识HTML5的websocket/" data-title="初识HTML的websocket | the blog of xmx" data-tsina="3941548463" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -138,13 +131,21 @@ Quick">
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2015/11/10/canvas鼠标绘图/HTML canvas鼠标绘图/" title="HTML canvas原生js实现鼠标画图">
+ <a href="/2015/11/13/Sublime Text如何快速安装插件/" title="SublimeText下如何安装插件">
   <strong>上一篇：</strong><br/>
   <span>
-  HTML canvas原生js实现鼠标画图</span>
+  SublimeText下如何安装插件</span>
 </a>
 </div>
 
+
+<div class="next">
+<a href="/2015/11/10/canvas鼠标绘图/HTML canvas鼠标绘图/"  title="HTML canvas原生js实现鼠标画图">
+ <strong>下一篇：</strong><br/> 
+ <span>HTML canvas原生js实现鼠标画图
+</span>
+</a>
+</div>
 
 </nav>
 
@@ -156,7 +157,7 @@ Quick">
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick_Start"><span class="toc-number">1.</span> <span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create_a_new_post"><span class="toc-number">1.1.</span> <span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run_server"><span class="toc-number">1.2.</span> <span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate_static_files"><span class="toc-number">1.3.</span> <span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy_to_remote_sites"><span class="toc-number">1.4.</span> <span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、HTTP轮询、长轮询、流化"><span class="toc-number">1.</span> <span class="toc-text">一、HTTP轮询、长轮询、流化</span></a></li></ol>
  
   </div>
 
