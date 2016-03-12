@@ -4,22 +4,27 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>the blog of xmx</title>
+    <title>用canvas模拟简易钟表 | the blog of xmx</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="xmx">
     
 
     
-    <meta name="description" content="学习总结 思考感悟 知识管理">
-<meta property="og:type" content="website">
-<meta property="og:title" content="the blog of xmx">
-<meta property="og:url" content="http://yoursite.com/index.html">
+    <meta name="description" content="很久没有更新博客了，最近忙实习准备面试，快要心力交瘁-_-。空闲下来后，用HTML5的canvas模拟的简易钟表。
+效果如下：贴上代码：123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用canvas模拟简易钟表">
+<meta property="og:url" content="http://yoursite.com/2016/03/12/用canvas模拟简易钟表/index.html">
 <meta property="og:site_name" content="the blog of xmx">
-<meta property="og:description" content="学习总结 思考感悟 知识管理">
+<meta property="og:description" content="很久没有更新博客了，最近忙实习准备面试，快要心力交瘁-_-。空闲下来后，用HTML5的canvas模拟的简易钟表。
+效果如下：贴上代码：123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/689918/201603/689918-20160311231147647-1217567444.png">
+<meta property="og:updated_time" content="2016-03-12T06:45:19.733Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="the blog of xmx">
-<meta name="twitter:description" content="学习总结 思考感悟 知识管理">
+<meta name="twitter:title" content="用canvas模拟简易钟表">
+<meta name="twitter:description" content="很久没有更新博客了，最近忙实习准备面试，快要心力交瘁-_-。空闲下来后，用HTML5的canvas模拟的简易钟表。
+效果如下：贴上代码：123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707">
 
     
     <link rel="alternative" href="http://github.com/pursue321.atom## RSS address." title="the blog of xmx" type="application/atom+xml">
@@ -73,12 +78,10 @@
 </div>
     </header>
     <div id="container">
-      <div id="main">
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
   <h1 itemprop="name">
     
       <a href="/2016/03/12/用canvas模拟简易钟表/" title="用canvas模拟简易钟表" itemprop="url">用canvas模拟简易钟表</a>
@@ -92,18 +95,20 @@
     
   </p>
 </header>
-    <div class="article-content">
-        
-        <p>很久没有更新博客了，最近忙实习准备面试，快要心力交瘁-_-。空闲下来后，用HTML5的canvas模拟的简易钟表。</p>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			
+		
+		</div>
+		
+		<p>很久没有更新博客了，最近忙实习准备面试，快要心力交瘁-_-。空闲下来后，用HTML5的canvas模拟的简易钟表。</p>
 <p>效果如下：<br><img src="http://images2015.cnblogs.com/blog/689918/201603/689918-20160311231147647-1217567444.png" alt="watch img"><br>贴上代码：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta http-equiv=<span class="string">"Content-Type"</span> content=<span class="string">"text/html; charset=utf-8"</span> /&gt;</span><br><span class="line">&lt;title&gt;canvas模拟钟表&lt;/title&gt;</span><br><span class="line">&lt;style&gt;</span><br><span class="line">    body &#123; background-color:yellow;&#125;</span><br><span class="line">    <span class="comment">#c1 &#123; background-color: white;&#125;</span></span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    window.onload = <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">var</span> oC = document.getElementById(<span class="string">'c1'</span>);</span><br><span class="line">            <span class="keyword">var</span> oCG = oC.getContext(<span class="string">'2d'</span>);</span><br><span class="line">            <span class="function"><span class="keyword">function</span> <span class="title">toDraw</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            	    <span class="comment">//如果不清空画布每执行一次toDate()就会画一次时钟，导致每秒都有一次时钟重合</span></span><br><span class="line">                    oCG.clearRect(<span class="number">0</span>,<span class="number">0</span>,oC.width,oC.hight); </span><br><span class="line">                    <span class="keyword">var</span> x = <span class="number">200</span>;</span><br><span class="line">                    <span class="keyword">var</span> y = <span class="number">200</span>; </span><br><span class="line">                    <span class="keyword">var</span> r = <span class="number">150</span>;</span><br><span class="line">                    </span><br><span class="line">                    <span class="keyword">var</span> oDate = <span class="keyword">new</span> Date();</span><br><span class="line">                    <span class="keyword">var</span> oHours = oDate.getHours();</span><br><span class="line">                    <span class="keyword">var</span> oMin = oDate.getMinutes();</span><br><span class="line">                    <span class="keyword">var</span> oSec = oDate.getSeconds();</span><br><span class="line">                    </span><br><span class="line">                    <span class="comment">//分别获取三针在当前时间点的弧度，从12点开始计算，因此需要减去90度（arc函数从三点处开始计算为0度）</span></span><br><span class="line">                    <span class="comment">//度数转化为弧公式：度数*Math.PI/180</span></span><br><span class="line">                    <span class="comment">//oMin/2指分针走一圈60分钟，时针只走15度</span></span><br><span class="line">                    <span class="keyword">var</span> oHoursValue = (-<span class="number">90</span>+<span class="number">30</span>*oHours+oMin/<span class="number">2</span>)*Math.PI/<span class="number">180</span>;</span><br><span class="line">                    <span class="keyword">var</span> oMinValue = (-<span class="number">90</span>+<span class="number">6</span>*oMin)*Math.PI/<span class="number">180</span>; </span><br><span class="line">                    <span class="keyword">var</span> oSecValue = (-<span class="number">90</span>+<span class="number">6</span>*oSec)*Math.PI/<span class="number">180</span>;</span><br><span class="line">                    </span><br><span class="line">                    <span class="comment">//绘制表盘分针刻度</span></span><br><span class="line">                    oCG.beginPath();</span><br><span class="line">                    <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="number">60</span>;i++) &#123;</span><br><span class="line">                    oCG.moveTo(x,y);</span><br><span class="line">                    oCG.arc(x,y,r,<span class="number">6</span>*i*Math.PI/<span class="number">180</span>,<span class="number">6</span>*(i+<span class="number">1</span>)*Math.PI/<span class="number">180</span>,<span class="keyword">false</span>); &#125;</span><br><span class="line">                    oCG.closePath();</span><br><span class="line">                    oCG.stroke();</span><br><span class="line">                    </span><br><span class="line">                    <span class="comment">//由于分针刻度是从中心点开始沿半径指向表盘弧，所以绘制一个半径稍小于r，填充背景为白色的表盘遮盖多余的刻度</span></span><br><span class="line">                    oCG.fillStyle=<span class="string">'white'</span>;</span><br><span class="line">                    oCG.beginPath();</span><br><span class="line">                    oCG.moveTo(x,y);</span><br><span class="line">                    oCG.arc(x,y,r*<span class="number">19</span>/<span class="number">20</span>,<span class="number">0</span>,<span class="number">360</span>*Math.PI/<span class="number">180</span>,<span class="keyword">false</span>);</span><br><span class="line">                    oCG.closePath();</span><br><span class="line">                    oCG.fill();</span><br><span class="line">                    </span><br><span class="line">                    <span class="comment">//绘制时针刻度</span></span><br><span class="line">                    oCG.lineWidth=<span class="string">'3'</span>;</span><br><span class="line">                    oCG.beginPath();</span><br><span class="line">                    <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="number">12</span>;i++) &#123;</span><br><span class="line">                    oCG.moveTo(x,y);</span><br><span class="line">                    oCG.arc(x,y,r,<span class="number">30</span>*i*Math.PI/<span class="number">180</span>,<span class="number">30</span>*(i+<span class="number">1</span>)*Math.PI/<span class="number">180</span>,<span class="keyword">false</span>); &#125;</span><br><span class="line">                    oCG.closePath();</span><br><span class="line">                    oCG.stroke();</span><br><span class="line">                    </span><br><span class="line">                    <span class="comment">//同上，绘制填充背景为白色的小盘遮盖多余刻度</span></span><br><span class="line">                    oCG.fillStyle=<span class="string">'white'</span>;</span><br><span class="line">                    oCG.beginPath();</span><br><span class="line">                    oCG.moveTo(x,y);</span><br><span class="line">                    oCG.arc(x,y,r*<span class="number">18</span>/<span class="number">20</span>,<span class="number">0</span>,<span class="number">360</span>*Math.PI/<span class="number">180</span>,<span class="keyword">false</span>);</span><br><span class="line">                    oCG.closePath();</span><br><span class="line">                    oCG.fill();</span><br><span class="line">                    </span><br><span class="line">                    <span class="comment">//绘制时针指针</span></span><br><span class="line">                    oCG.lineWidth = <span class="string">'5'</span>;</span><br><span class="line">                    oCG.beginPath();</span><br><span class="line">                    oCG.moveTo(x,y);</span><br><span class="line">                    oCG.arc(x,y,r*<span class="number">10</span>/<span class="number">20</span>,oHoursValue,oHoursValue,<span class="keyword">false</span>);</span><br><span class="line">                    oCG.closePath();</span><br><span class="line">                    oCG.stroke();</span><br><span class="line">                    </span><br><span class="line">                    <span class="comment">//绘制分针指针</span></span><br><span class="line">                    oCG.lineWidth = <span class="string">'3'</span>;</span><br><span class="line">                    oCG.beginPath();</span><br><span class="line">                    oCG.moveTo(x,y);</span><br><span class="line">                    oCG.arc(x,y,r*<span class="number">14</span>/<span class="number">20</span>,oMinValue,oMinValue,<span class="keyword">false</span>);</span><br><span class="line">                    oCG.closePath();</span><br><span class="line">                    oCG.stroke();</span><br><span class="line">                    </span><br><span class="line">                    <span class="comment">//绘制秒针指针</span></span><br><span class="line">                    oCG.lineWidth = <span class="string">'1'</span>;</span><br><span class="line">                    oCG.beginPath();</span><br><span class="line">                    oCG.moveTo(x,y);</span><br><span class="line">                    oCG.arc(x,y,r*<span class="number">19</span>/<span class="number">20</span>,oSecValue,oSecValue,<span class="keyword">false</span>);</span><br><span class="line">                    oCG.closePath();</span><br><span class="line">                    oCG.stroke();</span><br><span class="line">                    </span><br><span class="line">                    <span class="comment">//绘制时钟中心的黑点</span></span><br><span class="line">                    oCG.fillStyle=<span class="string">'black'</span>;</span><br><span class="line">                    oCG.beginPath();</span><br><span class="line">                    oCG.moveTo(x,y);</span><br><span class="line">                    oCG.arc(x,y,r*<span class="number">1</span>/<span class="number">30</span>,<span class="number">0</span>,<span class="number">360</span>*Math.PI/<span class="number">180</span>,<span class="keyword">false</span>);</span><br><span class="line">                    oCG.closePath();</span><br><span class="line">                    oCG.fill();</span><br><span class="line">                &#125;</span><br><span class="line">                setInterval(toDraw,<span class="number">1000</span>);</span><br><span class="line">            toDraw();</span><br><span class="line">        &#125;;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;canvas id=<span class="string">"c1"</span> width=<span class="string">"400px"</span> height=<span class="string">"400px"</span>&gt; &lt;!--宽高写在html里，写在css里有问题--&gt;</span><br><span class="line">        &lt;span&gt;该浏览器不支持canvas内容&lt;/span&gt; &lt;!--对于不支持canvas的浏览器显示--&gt;</span><br><span class="line">    &lt;/canvas&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
+  
+	</div>
+		<footer class="article-footer clearfix">
 <div class="article-catetags">
 
 
@@ -111,24 +116,30 @@
 
 
 
-
-<div class="comments-count">
+	<div class="article-share" id="share">
 	
-</div>
+	  <div data-url="http://yoursite.com/2016/03/12/用canvas模拟简易钟表/" data-title="用canvas模拟简易钟表 | the blog of xmx" data-tsina="3941548463" class="share clearfix">
+	  </div>
+	
+	</div>
+
 
 </footer>
 
+   	       
+	</article>
+	
+	
 
-    </article>
-
-
-
-
-
-
-
-</div>
+</div>  
       <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ 
+ 
+  </div>
 
 <div id="asidepart">
 <div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
@@ -278,12 +289,89 @@ $(document).ready(function(){
       m.removeClass('moveMain');
       a.css('display', 'block').removeClass('fadeOut');
       o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
         
     }
   });
 });
 </script>
 
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
 
 
 
@@ -349,4 +437,4 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
 <!-- Tiny_search End -->
 
   </body>
- </html>
+</html>
