@@ -1,0 +1,359 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>the blog of xmx</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="xmx">
+    
+
+    
+    <meta name="description" content="学习总结 思考感悟 知识管理">
+<meta property="og:type" content="website">
+<meta property="og:title" content="the blog of xmx">
+<meta property="og:url" content="http://yoursite.com/page/2/index.html">
+<meta property="og:site_name" content="the blog of xmx">
+<meta property="og:description" content="学习总结 思考感悟 知识管理">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="the blog of xmx">
+<meta name="twitter:description" content="学习总结 思考感悟 知识管理">
+
+    
+    <link rel="alternative" href="http://github.com/pursue321.atom## RSS address." title="the blog of xmx" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="the blog of xmx" title="the blog of xmx"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="the blog of xmx">the blog of xmx</a></h1>
+				<h2 class="blog-motto">今天能做的事，不要拖到明天去做</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main">
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/11/13/初识HTML5的websocket/" title="初识HTML的websocket" itemprop="url">初识HTML的websocket</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="xmx" target="_blank" itemprop="author">xmx</a>
+		
+  <p class="article-time">
+    <time datetime="2015-11-13T08:43:14.705Z" itemprop="datePublished"> 发表于 2015-11-13</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>　众所周知，webSocket是HTML5连接性领域中的一种自然的全双工、双向、单套接字连接。而HTTP从根本上来讲，还是半双工的协议，也就是说，在同一时刻流量只能单向流动：客户端向服务器发送请求（单向），然后服务器相应客户端的请求（单向），这种半双工的效率很低，并且不是为现代实时web所设计的。随着互联网技术的发展，当前越来越多的应用（例如聊天、大型多人在线游戏、股票交易应用程序等）希望能够及时获取服务端提供的数据，甚至希望能够达到接近实时的数据交换。为达到此目的，通常采用的技术主要有轮询、长轮询、流等，而伴随着HTML5的出现，相对更优异的WebSocket方案也应运而生，它基于标准，与语言无关，且能在其上自由灵活的增加标准协议层次。当使用webSocket时，你的HTTP请求变成打开webSocket连接的单一请求，并且重用从客户端到服务器以及服务器到客户端的同一连接.为了更加了解webSocket的出现背景，我们首先简单地介绍下非webSocket的相关方法。</p>
+<h3 id="一、HTTP轮询、长轮询、流化">一、HTTP轮询、长轮询、流化</h3><p>　　轮询（polling）是一种定时的同步调用，客户端向服务器发送请求查看是否有可用的新信息。请求以固定的时间间隔发出，不管服务器是否有信息，客户端都会得到响应：当有可用信息，服务器将该信息发送到客户端；若没有，服务器返回一个拒绝响应，客户端关闭连接。这种技术模拟其他服务器端“推”技术（最流行的是Comet），本质上就是推迟完成HTTP响应，向客户端提交信息。轮询适用于，当你知道信息交付的精确间隔时，它就是一个比较好的解决方案，因为你可以同步客户 端，只有你知道服务器上有可用信息时发送请求。然而，实时数据并不总是可预测的，因此发出不必要的请求、打开过多连接是不可避免的。</p>
+<p>　　长轮询(long polling)是另一种流行的通信方法，客户端向服务器请求信息，并在设定的时间段内打开一个连接。服务器如果没有任何消息，会一直保持请求打开，直到有客户端可用的信息，或者指定的超时时间截止为止，这时客户端重新向服务器请求信息。长轮询也称作Comet或者反向AJAX。长轮询的一个问题是，当信息量很大时，它相对于传统轮询并没有明显的性能优势，因为客户端必须频繁的重连到服务器以读取新信息，造成网络的表现和快速轮询相似。另一个问题是，长轮询缺乏标准实现。</p>
+<p>　　流化，即客户端发送一个请求，服务器发送并维护一个持续更新和保持打开的开放响应。每当服务器有需要交付给客户端的信息时，它就更新响应。从表面上看，流化是能够适应不可预测的信息交付的极佳方案，但是服务器从不发出完成HTTP响应的请求，从而使连接一直保持打开。在这种情况下，代理和防火墙可能缓存响应，导致信息交付的延迟增加。因此，许多流化的尝试对于存在防火墙和代理的网站是不友好的。</p>
+<p>　　上述几种方法都提供了近乎实时的通信，但他们也涉及HTTP请求和响应首标，包含了许多不必要的首标数据和延迟。除此之外，在每一种情况下，客户端都必须等待请求返回，才能发出后续请求，而这显著的增加了延迟。<br>　<br>    未完待续…</p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+
+  <nav id="page-nav" class="clearfix">
+    <a class="extend prev" rel="prev" href="/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+  </nav>
+
+</div>
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="github-card">
+<p class="asidetitle">Github 名片</p>
+<div class="github-card" data-github="pursue321" data-width="220" data-height="119" data-theme="medium">
+<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
+</div>
+  </div>
+
+
+
+  
+
+  
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="http://www.cnblogs.com/mixue/" target="_blank" title="博客园">博客园</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://blog.csdn.net/mixue321" target="_blank" title="CSDN">CSDN</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="http://github.com/pursue321.atom## RSS address." target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+  <div class="weiboshow">
+  <p class="asidetitle">新浪微博</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=3941548463&verifier=xmixue&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello ,I&#39;m xmx.This is my blog on github.  <br/>
+			Do what you say and say what you do.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/xmixue" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/pursue321" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		
+		
+		
+		
+		<a href="http://www.zhihu.com/people/Xmixue" target="_blank" class="icon-zhihu" title="知乎"></a>
+		
+		
+		
+		<a href="mailto:1499129662@qq.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+				<div class="cc-license">
+          <a href="http://creativecommons.org/licenses/by/4.0" class="cc-opacity" target="_blank">
+            <img src="/img/cc-by.svg" alt="Creative Commons" />
+          </a>
+        </div>
+    
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
+		
+		<a href="/about" target="_blank" title="xmx">xmx</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fe6d1f421bbc9962127a50488f9ed37d1' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+ </html>

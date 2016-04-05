@@ -81,6 +81,134 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2016/04/05/客户端存储之H5 web存储/" title="客户端存储之HTML5 web存储" itemprop="url">客户端存储之HTML5 web存储</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="xmx" target="_blank" itemprop="author">xmx</a>
+		
+  <p class="article-time">
+    <time datetime="2016-04-05T13:57:08.550Z" itemprop="datePublished"> 发表于 2016-04-05</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>最近在学习如何实现客户端存储，这篇文章将主要分析H5的web storage以及它与传统的cookie之间的区别。<br><img src="http://img.blog.csdn.net/20160405214318198?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="客户端存储"></p>
+<h3 id="web存储与cookie的区别以及优势：">web存储与cookie的区别以及优势：</h3><p>1、cookie只适合存储少量文本数据，而web存储可存储大量数据</p>
+<p>2、以cookie存储的数据，无论服务器端是否需要，每次HTTP请求时，都会将cookie数据传送到服务端，有时会造成带宽浪费，而web storage 中的数据只会存储在本地</p>
+<p>3、web storage有更加丰富易用的接口，比如setItem()、getItem()、removeItem()、clear()等，使数据操作更简便；而cookie没有提供，需要通过document对象的cookie属性来完成</p>
+<p>4、兼容性差异：cookie所有浏览器都支持，而web storage 在IE8下不支持</p>
+<p>5、cookie默认的有效期很短暂，一旦用户关闭浏览器，cookie保存的数据就丢失了；但一旦设置cookie有效期，数据则会一直保存直到 失效期。在这点上，它与sessionStorage的区别是：cookie作用域不是局限在浏览器的单个标签页，而是整个浏览器进程。</p>
+<h3 id="web_存储_:_localStorage、sessionStorage">web 存储 : localStorage、sessionStorage</h3><p>web存储定义了两种对象：localStorage、sessionStorage，二者是以windows对象的属性形式存在，对于IE8以前的浏览器，可以用IE的userData作为H5 web存储的替代方案。</p>
+<h3 id="localStorage与sessionStorage区别：">localStorage与sessionStorage区别：</h3><p>二者的区别主要体现在有效期和作用域上。</p>
+<p>1、在有效期上，localStorage是永久性的，除非用户或者开发者刻意删除，否则数据将一直存储在用户电脑上。而sessionStorage一旦窗口或者标签页关闭，通过sessionStorage存储的数据也将被删除。</p>
+<p>2、在作用域上，二者都会受到文档源额限制，也就是说，非同源文档之间是无法共享本地存储的数据的；除了文档源额限制，localStorage还 会受到浏览器厂商的限制。举例来说，当前用Firefox打开一个站点，下次用Chrome打开同一站点，也无法访问上次存储的数据；除了文档源额限 制，sessionStorage还会受到窗口的限制。也就是说，即使是同源文档在浏览器的不同标签页时，他互相之间拥有的也是各自的 sessoionStorage对象。</p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/04/05/常见的HTTP状态码总结/" title="常见的HTTP状态码总结" itemprop="url">常见的HTTP状态码总结</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="xmx" target="_blank" itemprop="author">xmx</a>
+		
+  <p class="article-time">
+    <time datetime="2016-04-05T11:45:02.755Z" itemprop="datePublished"> 发表于 2016-04-05</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h3 id="100_-_199：信息性状态码">100 - 199：信息性状态码</h3><p>这些状态码相对较新，由于其复杂性而受到限制。</p>
+<p>100 Continue : 初始的请求已被接受，客户应当继续发送请求的其余部分</p>
+<p>101 Switching Protocols : 服务器正在根据客户端的指定，将协议切换成Update首部所列的协议</p>
+<h3 id="200_-_299_:_请求成功状态码">200 - 299 : 请求成功状态码</h3><p>200 OK ：请求没问题，实体的主体部分包含所请求的资源</p>
+<p>202 Accepted : 请求已被接受，但服务器还未对其执行任何动作，也就是说，不能保证服务器能够完成这个请求</p>
+<p>204 No Content : 响应报文中没有实体的主体部分</p>
+<p>206 Partial Content : 成功执行了一个范围请求</p>
+<h3 id="300_-_399_：重定向状态码">300 - 399 ：重定向状态码</h3><p>如果请求的资源被移动到其他位置，可以发送一个重定向状态码和一个可选的Location首部来告知客户端资源已经被移走以及现在在哪里可以找到它。</p>
+<p>301 Moved Permanently : 永久重定向,客户端使用Location给出的URL来定位资源，将来的请求使用新的URL</p>
+<p>302 Found : 暂时重定向，客户端使用Location给出的URL来临时定位资源，将来的请求仍然使用老的URL</p>
+<p>304 Not Modified : 如果客户端发起条件get请求，最近资源未被修改的话，返回该状态码说明资源未被修改，客户端可以请求本地副本</p>
+<p>307 Temporary Redirect : 暂时重定向,HTTP1.1规范指出对于HTTP1.1客户端，用307取代302</p>
+<h3 id="400_-_499：客户端错误状态码">400 - 499：客户端错误状态码</h3><p>400 Bad Request : 告知客户端它发送了一个错误的请求</p>
+<p>403 Forbidden : 请求被服务器拒绝</p>
+<p>404 Not Found : 服务器无法找到请求的URL</p>
+<p>408 Request Timeout : 客户端完成请求所花的时间太长，服务器返回此状态码并关闭连接</p>
+<p>409 Conflict : 用于说明请求和资源的当前状态相冲突</p>
+<h3 id="500_-_599：服务器错误状态码">500 - 599：服务器错误状态码</h3><p>501 Not Implemented : 客户端发起的请求超出服务器的能力范围（比如：使用了服务器不支持的方法）</p>
+<p>502 Bad Gateway : 代理或网关出错</p>
+<p>505 ： 服务器收到的请求使用了它不支持的协议版本</p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2016/04/05/js、jQuery下设置获取位置宽高方法的区别总结/" title="谈谈jQuery和js里有关元素位置和宽高的方法" itemprop="url">谈谈jQuery和js里有关元素位置和宽高的方法</a>
   </h1>
   <p class="article-author">By
@@ -678,60 +806,10 @@ Remove <span class="keyword">package</span>:删除不必要的软件包
 
 
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/11/13/初识HTML5的websocket/" title="初识HTML的websocket" itemprop="url">初识HTML的websocket</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="xmx" target="_blank" itemprop="author">xmx</a>
-		
-  <p class="article-time">
-    <time datetime="2015-11-13T08:43:14.705Z" itemprop="datePublished"> 发表于 2015-11-13</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>　众所周知，webSocket是HTML5连接性领域中的一种自然的全双工、双向、单套接字连接。而HTTP从根本上来讲，还是半双工的协议，也就是说，在同一时刻流量只能单向流动：客户端向服务器发送请求（单向），然后服务器相应客户端的请求（单向），这种半双工的效率很低，并且不是为现代实时web所设计的。随着互联网技术的发展，当前越来越多的应用（例如聊天、大型多人在线游戏、股票交易应用程序等）希望能够及时获取服务端提供的数据，甚至希望能够达到接近实时的数据交换。为达到此目的，通常采用的技术主要有轮询、长轮询、流等，而伴随着HTML5的出现，相对更优异的WebSocket方案也应运而生，它基于标准，与语言无关，且能在其上自由灵活的增加标准协议层次。当使用webSocket时，你的HTTP请求变成打开webSocket连接的单一请求，并且重用从客户端到服务器以及服务器到客户端的同一连接.为了更加了解webSocket的出现背景，我们首先简单地介绍下非webSocket的相关方法。</p>
-<h3 id="一、HTTP轮询、长轮询、流化">一、HTTP轮询、长轮询、流化</h3><p>　　轮询（polling）是一种定时的同步调用，客户端向服务器发送请求查看是否有可用的新信息。请求以固定的时间间隔发出，不管服务器是否有信息，客户端都会得到响应：当有可用信息，服务器将该信息发送到客户端；若没有，服务器返回一个拒绝响应，客户端关闭连接。这种技术模拟其他服务器端“推”技术（最流行的是Comet），本质上就是推迟完成HTTP响应，向客户端提交信息。轮询适用于，当你知道信息交付的精确间隔时，它就是一个比较好的解决方案，因为你可以同步客户 端，只有你知道服务器上有可用信息时发送请求。然而，实时数据并不总是可预测的，因此发出不必要的请求、打开过多连接是不可避免的。</p>
-<p>　　长轮询(long polling)是另一种流行的通信方法，客户端向服务器请求信息，并在设定的时间段内打开一个连接。服务器如果没有任何消息，会一直保持请求打开，直到有客户端可用的信息，或者指定的超时时间截止为止，这时客户端重新向服务器请求信息。长轮询也称作Comet或者反向AJAX。长轮询的一个问题是，当信息量很大时，它相对于传统轮询并没有明显的性能优势，因为客户端必须频繁的重连到服务器以读取新信息，造成网络的表现和快速轮询相似。另一个问题是，长轮询缺乏标准实现。</p>
-<p>　　流化，即客户端发送一个请求，服务器发送并维护一个持续更新和保持打开的开放响应。每当服务器有需要交付给客户端的信息时，它就更新响应。从表面上看，流化是能够适应不可预测的信息交付的极佳方案，但是服务器从不发出完成HTTP响应的请求，从而使连接一直保持打开。在这种情况下，代理和防火墙可能缓存响应，导致信息交付的延迟增加。因此，许多流化的尝试对于存在防火墙和代理的网站是不友好的。</p>
-<p>　　上述几种方法都提供了近乎实时的通信，但他们也涉及HTTP请求和响应首标，包含了许多不必要的首标数据和延迟。除此之外，在每一种情况下，客户端都必须等待请求返回，才能发出后续请求，而这显著的增加了延迟。<br>　<br>    未完待续…</p>
 
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
+  <nav id="page-nav" class="clearfix">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next<span></span></a>
+  </nav>
 
 </div>
       <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>

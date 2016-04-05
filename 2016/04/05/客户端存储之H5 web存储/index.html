@@ -4,29 +4,30 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>谈谈jQuery和js里有关元素位置和宽高的方法 | the blog of xmx</title>
+    <title>客户端存储之HTML5 web存储 | the blog of xmx</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="xmx">
     
 
     
-    <meta name="description" content="总结一下jQuery、原生js设置和获取位置、宽高的方法。
-
-一、jQuery关于元素位置的方法position() 方法：只能获取，不能设置。可获取元素相对于其第一个position值不为static的祖先元素的偏移量，如果没有，则是相对于文档的偏移量；返回一个对象，包括两个属性:left，top; 属性值无单位，number类型。具体用法：1$(element).position().left">
+    <meta name="description" content="最近在学习如何实现客户端存储，这篇文章将主要分析H5的web storage以及它与传统的cookie之间的区别。
+web存储与cookie的区别以及优势：1、cookie只适合存储少量文本数据，而web存储可存储大量数据
+2、以cookie存储的数据，无论服务器端是否需要，每次HTTP请求时，都会将cookie数据传送到服务端，有时会造成带宽浪费，而web storage 中的数据只会存储在本地">
 <meta property="og:type" content="article">
-<meta property="og:title" content="谈谈jQuery和js里有关元素位置和宽高的方法">
-<meta property="og:url" content="http://yoursite.com/2016/04/05/js、jQuery下设置获取位置宽高方法的区别总结/index.html">
+<meta property="og:title" content="客户端存储之HTML5 web存储">
+<meta property="og:url" content="http://yoursite.com/2016/04/05/客户端存储之H5 web存储/index.html">
 <meta property="og:site_name" content="the blog of xmx">
-<meta property="og:description" content="总结一下jQuery、原生js设置和获取位置、宽高的方法。
-
-一、jQuery关于元素位置的方法position() 方法：只能获取，不能设置。可获取元素相对于其第一个position值不为static的祖先元素的偏移量，如果没有，则是相对于文档的偏移量；返回一个对象，包括两个属性:left，top; 属性值无单位，number类型。具体用法：1$(element).position().left">
-<meta property="og:updated_time" content="2016-04-05T05:08:07.168Z">
+<meta property="og:description" content="最近在学习如何实现客户端存储，这篇文章将主要分析H5的web storage以及它与传统的cookie之间的区别。
+web存储与cookie的区别以及优势：1、cookie只适合存储少量文本数据，而web存储可存储大量数据
+2、以cookie存储的数据，无论服务器端是否需要，每次HTTP请求时，都会将cookie数据传送到服务端，有时会造成带宽浪费，而web storage 中的数据只会存储在本地">
+<meta property="og:image" content="http://img.blog.csdn.net/20160405214318198?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
+<meta property="og:updated_time" content="2016-04-05T13:57:08.550Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="谈谈jQuery和js里有关元素位置和宽高的方法">
-<meta name="twitter:description" content="总结一下jQuery、原生js设置和获取位置、宽高的方法。
-
-一、jQuery关于元素位置的方法position() 方法：只能获取，不能设置。可获取元素相对于其第一个position值不为static的祖先元素的偏移量，如果没有，则是相对于文档的偏移量；返回一个对象，包括两个属性:left，top; 属性值无单位，number类型。具体用法：1$(element).position().left">
+<meta name="twitter:title" content="客户端存储之HTML5 web存储">
+<meta name="twitter:description" content="最近在学习如何实现客户端存储，这篇文章将主要分析H5的web storage以及它与传统的cookie之间的区别。
+web存储与cookie的区别以及优势：1、cookie只适合存储少量文本数据，而web存储可存储大量数据
+2、以cookie存储的数据，无论服务器端是否需要，每次HTTP请求时，都会将cookie数据传送到服务端，有时会造成带宽浪费，而web storage 中的数据只会存储在本地">
 
     
     <link rel="alternative" href="http://github.com/pursue321.atom## RSS address." title="the blog of xmx" type="application/atom+xml">
@@ -86,14 +87,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/04/05/js、jQuery下设置获取位置宽高方法的区别总结/" title="谈谈jQuery和js里有关元素位置和宽高的方法" itemprop="url">谈谈jQuery和js里有关元素位置和宽高的方法</a>
+      <a href="/2016/04/05/客户端存储之H5 web存储/" title="客户端存储之HTML5 web存储" itemprop="url">客户端存储之HTML5 web存储</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="xmx" target="_blank" itemprop="author">xmx</a>
 		
   <p class="article-time">
-    <time datetime="2016-04-05T05:08:07.168Z" itemprop="datePublished"> 发表于 2016-04-05</time>
+    <time datetime="2016-04-05T13:57:08.550Z" itemprop="datePublished"> 发表于 2016-04-05</time>
     
   </p>
 </header>
@@ -102,22 +103,20 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、jQuery关于元素位置的方法"><span class="toc-number">1.</span> <span class="toc-text">一、jQuery关于元素位置的方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、jQuery关于元素宽高的方法"><span class="toc-number">2.</span> <span class="toc-text">二、jQuery关于元素宽高的方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、原生js关于元素位置的属性"><span class="toc-number">3.</span> <span class="toc-text">三、原生js关于元素位置的属性</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#web存储与cookie的区别以及优势："><span class="toc-number">1.</span> <span class="toc-text">web存储与cookie的区别以及优势：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#web_存储_:_localStorage、sessionStorage"><span class="toc-number">2.</span> <span class="toc-text">web 存储 : localStorage、sessionStorage</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#localStorage与sessionStorage区别："><span class="toc-number">3.</span> <span class="toc-text">localStorage与sessionStorage区别：</span></a></li></ol>
 		
 		</div>
 		
-		<p>总结一下jQuery、原生js设置和获取位置、宽高的方法。</p>
-<hr>
-<h3 id="一、jQuery关于元素位置的方法">一、jQuery关于元素位置的方法</h3><p><strong>position() 方法：只能获取，不能设置。</strong><br>可获取元素相对于其第一个position值不为static的祖先元素的偏移量，如果没有，则是相对于文档的偏移量；返回一个对象，包括两个属性:left，top; 属性值无单位，number类型。具体用法：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(element).position().left; <span class="comment">//获取元素相对于其第一个position值不为static的祖先元素的偏移量</span></span><br></pre></td></tr></table></figure></p>
-<p><strong>offset()方法：既能获取，也能设置。</strong><br>获取和设置元素相对于文档的偏移量。获取时返回一个对象，包括两个属性：left，top。属性值无单位，number类型；设置时给方法传入一个对象，可包括属性top,left；具体用法：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$(elemment).offset().left; <span class="comment">//获取元素相对于文档的偏移量   </span></span><br><span class="line">$(element).offset(&#123;top:<span class="number">200</span>,left:<span class="number">100</span>&#125;); <span class="comment">//设置元素相对于文档的偏移量</span></span><br></pre></td></tr></table></figure></p>
-<p><strong>scrollLeft()、scrollTop(),滚动方法：既能获取，也能设置。</strong><br>可以获取和设置元素从顶部或者左侧已经滚动的值,获取时返回number类型的数值，设置时给方法传递一个数字参数。具体用法：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$(element).scrollLeft(); <span class="comment">//获取元素滚动的left值  </span></span><br><span class="line">$(element).scrollLeft(<span class="number">200</span>); <span class="comment">//设置元素滚动的left值</span></span><br></pre></td></tr></table></figure></p>
-<h3 id="二、jQuery关于元素宽高的方法">二、jQuery关于元素宽高的方法</h3><p><strong>width()、height() 方法：既能获取，也能设置。</strong><br>可获取和设置元素的宽度和高度。获取时，返回number类型；设置时，给方法传入数值类型的参数即可。具体用法：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$(element).width(); <span class="comment">//获取元素宽度    </span></span><br><span class="line">$(element).width(<span class="number">200</span>); <span class="comment">//设置元素宽度</span></span><br></pre></td></tr></table></figure></p>
-<p><strong>innerWidth()、innerHight()方法：只能获取，不能设置。</strong><br>可获取第一个匹配元素的内部宽度和高度，例如获取元素内部宽度时，包括width+padding,不包括border。</p>
-<p><strong>outerWidth()、outerHight()方法：只能获取，不能设置。</strong><br>可获取第一个匹配元素的外部宽度和高度，有两种情况: （用获取元素外部宽度来举例）<br>1.当方法内部不指定参数或者参数为false时，包括width+padding+margin;<br>2.当方法内部参数为true时，包括width+padding+border+margin；</p>
-<p><strong>css()方法：既可获取，也可设置。</strong><br>可以获取和设置元素的宽高（当然也可获取和设置其他css属性，这里只是为了与其他几种设置获取元素宽高的方法做对比），当获取元素的宽高时，返回一个单位为px的string字符串；当设置元素宽高时，给css()方法传入对象，对象里面包含width\height属性；具体用法：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$(element).css(<span class="string">'width'</span>); <span class="comment">//获取元素宽度  </span></span><br><span class="line">$(element).css(&#123;width:<span class="string">'200px'</span>,height:<span class="string">'300px'</span>&#125;);<span class="comment">//设置元素的宽度和高度，也可以不要引号和单位</span></span><br></pre></td></tr></table></figure></p>
-<h3 id="三、原生js关于元素位置的属性">三、原生js关于元素位置的属性</h3><p><strong>offsetLeft、offsetTop属性：只可获取，不可设置</strong>（类似jQuery的position()方法）。<br>相对于其第一个position值不为static的祖先元素来计算偏移量，返回number类型数值。</p>
-<p><strong>style.left、style.top:既可设置，也可获取。</strong><br>与offsetLeft、offsetTop属性相比，共同点：都是相对于其第一个position值不为static的祖先元素来计算偏移量；不同点：</p>
-<p>1.通过style,既可获取元素宽高，也可设置元素宽高<br>2.style.left/style.top返回的是字符串（包含单位）<br>3.要获取style.left/style.top需要事先定义，而且必须定义在html元素的内联样式里，否则获取到的值将为空。</p>
+		<p>最近在学习如何实现客户端存储，这篇文章将主要分析H5的web storage以及它与传统的cookie之间的区别。<br><img src="http://img.blog.csdn.net/20160405214318198?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="客户端存储"></p>
+<h3 id="web存储与cookie的区别以及优势：">web存储与cookie的区别以及优势：</h3><p>1、cookie只适合存储少量文本数据，而web存储可存储大量数据</p>
+<p>2、以cookie存储的数据，无论服务器端是否需要，每次HTTP请求时，都会将cookie数据传送到服务端，有时会造成带宽浪费，而web storage 中的数据只会存储在本地</p>
+<p>3、web storage有更加丰富易用的接口，比如setItem()、getItem()、removeItem()、clear()等，使数据操作更简便；而cookie没有提供，需要通过document对象的cookie属性来完成</p>
+<p>4、兼容性差异：cookie所有浏览器都支持，而web storage 在IE8下不支持</p>
+<p>5、cookie默认的有效期很短暂，一旦用户关闭浏览器，cookie保存的数据就丢失了；但一旦设置cookie有效期，数据则会一直保存直到 失效期。在这点上，它与sessionStorage的区别是：cookie作用域不是局限在浏览器的单个标签页，而是整个浏览器进程。</p>
+<h3 id="web_存储_:_localStorage、sessionStorage">web 存储 : localStorage、sessionStorage</h3><p>web存储定义了两种对象：localStorage、sessionStorage，二者是以windows对象的属性形式存在，对于IE8以前的浏览器，可以用IE的userData作为H5 web存储的替代方案。</p>
+<h3 id="localStorage与sessionStorage区别：">localStorage与sessionStorage区别：</h3><p>二者的区别主要体现在有效期和作用域上。</p>
+<p>1、在有效期上，localStorage是永久性的，除非用户或者开发者刻意删除，否则数据将一直存储在用户电脑上。而sessionStorage一旦窗口或者标签页关闭，通过sessionStorage存储的数据也将被删除。</p>
+<p>2、在作用域上，二者都会受到文档源额限制，也就是说，非同源文档之间是无法共享本地存储的数据的；除了文档源额限制，localStorage还 会受到浏览器厂商的限制。举例来说，当前用Firefox打开一个站点，下次用Chrome打开同一站点，也无法访问上次存储的数据；除了文档源额限 制，sessionStorage还会受到窗口的限制。也就是说，即使是同源文档在浏览器的不同标签页时，他互相之间拥有的也是各自的 sessoionStorage对象。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -130,7 +129,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2016/04/05/js、jQuery下设置获取位置宽高方法的区别总结/" data-title="谈谈jQuery和js里有关元素位置和宽高的方法 | the blog of xmx" data-tsina="3941548463" class="share clearfix">
+	  <div data-url="http://yoursite.com/2016/04/05/客户端存储之H5 web存储/" data-title="客户端存储之HTML5 web存储 | the blog of xmx" data-tsina="3941548463" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -143,19 +142,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2016/04/05/常见的HTTP状态码总结/" title="常见的HTTP状态码总结">
-  <strong>上一篇：</strong><br/>
-  <span>
-  常见的HTTP状态码总结</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2016/03/12/用canvas模拟简易钟表/"  title="用canvas模拟简易钟表">
+<a href="/2016/04/05/常见的HTTP状态码总结/"  title="常见的HTTP状态码总结">
  <strong>下一篇：</strong><br/> 
- <span>用canvas模拟简易钟表
+ <span>常见的HTTP状态码总结
 </span>
 </a>
 </div>
@@ -170,7 +161,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、jQuery关于元素位置的方法"><span class="toc-number">1.</span> <span class="toc-text">一、jQuery关于元素位置的方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、jQuery关于元素宽高的方法"><span class="toc-number">2.</span> <span class="toc-text">二、jQuery关于元素宽高的方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、原生js关于元素位置的属性"><span class="toc-number">3.</span> <span class="toc-text">三、原生js关于元素位置的属性</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#web存储与cookie的区别以及优势："><span class="toc-number">1.</span> <span class="toc-text">web存储与cookie的区别以及优势：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#web_存储_:_localStorage、sessionStorage"><span class="toc-number">2.</span> <span class="toc-text">web 存储 : localStorage、sessionStorage</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#localStorage与sessionStorage区别："><span class="toc-number">3.</span> <span class="toc-text">localStorage与sessionStorage区别：</span></a></li></ol>
  
   </div>
 
