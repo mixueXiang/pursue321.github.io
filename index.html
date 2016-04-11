@@ -81,6 +81,77 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2016/04/11/js、jQuery下设置获取位置宽高方法的区别总结/" title="谈谈jQuery和js里有关元素位置和宽高的方法" itemprop="url">谈谈jQuery和js里有关元素位置和宽高的方法</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="xmx" target="_blank" itemprop="author">xmx</a>
+		
+  <p class="article-time">
+    <time datetime="2016-04-11T12:22:29.804Z" itemprop="datePublished"> 发表于 2016-04-11</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>总结一下jQuery、原生js设置和获取位置、宽高的方法。又修改了一些内容，为什么记忆力下滑-_-…</p>
+<hr>
+<h3 id="一、jQuery关于元素位置的方法">一、jQuery关于元素位置的方法</h3><p><strong>position() 方法：只能获取，不能设置。</strong><br>可获取元素相对于其第一个position值不为static的祖先元素的偏移量，如果没有，则是相对于文档的偏移量；返回一个对象，包括两个属性:left，top; 属性值无单位，number类型。具体用法：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(element).position().left; <span class="comment">//获取元素相对于其第一个position值不为static的祖先元素的偏移量</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>offset()方法：既能获取，也能设置。</strong><br>获取和设置元素相对于文档的偏移量。获取时返回一个对象，包括两个属性：left，top。属性值无单位，number类型；设置时给方法传入一个对象，可包括属性top,left；具体用法：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$(elemment).offset().left; <span class="comment">//获取元素相对于文档的偏移量   </span></span><br><span class="line">$(element).offset(&#123;top:<span class="number">200</span>,left:<span class="number">100</span>&#125;); <span class="comment">//设置元素相对于文档的偏移量</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>scrollLeft()、scrollTop(),滚动方法：既能获取，也能设置。</strong><br>可以获取和设置元素从顶部或者左侧已经滚动的值,获取时返回number类型的数值，设置时给方法传递一个数字参数。具体用法：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$(element).scrollLeft(); <span class="comment">//获取元素滚动的left值  </span></span><br><span class="line">$(element).scrollLeft(<span class="number">200</span>); <span class="comment">//设置元素滚动的left值</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="二、jQuery关于元素宽高的方法">二、jQuery关于元素宽高的方法</h3><p><strong>width()、height() 方法：既能获取，也能设置。</strong><br>可获取和设置元素的宽度和高度。获取时，返回number类型；设置时，给方法传入数值类型的参数即可。具体用法：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$(element).width(); <span class="comment">//获取元素宽度    </span></span><br><span class="line">$(element).width(<span class="number">200</span>); <span class="comment">//设置元素宽度</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>innerWidth()、innerHight()方法：只能获取，不能设置。</strong><br>可获取第一个匹配元素的内部宽度和高度，例如获取元素内部宽度时，包括width+padding,不包括border。</p>
+<p><strong>outerWidth()、outerHight()方法：只能获取，不能设置。</strong><br>可获取第一个匹配元素的外部宽度和高度，有两种情况: （用获取元素外部宽度来举例）<br>1.当方法内部不指定参数或者参数为false时，包括width+padding+margin;<br>2.当方法内部参数为true时，包括width+padding+border+margin；</p>
+<p><strong>css()方法：既可获取，也可设置。</strong><br>可以获取和设置元素的宽高（当然也可获取和设置其他css属性，这里只是为了与其他几种设置获取元素宽高的方法做对比），当获取元素的宽高时，返回一个单位为px的string字符串；当设置元素宽高时，给css()方法传入对象，对象里面包含width\height属性；具体用法：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$(element).css(<span class="string">'width'</span>); <span class="comment">//获取元素宽度  </span></span><br><span class="line">$(element).css(&#123;width:<span class="string">'200px'</span>,height:<span class="string">'300px'</span>&#125;);<span class="comment">//设置元素的宽度和高度，也可以不要引号和单位</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="三、原生js关于元素位置的属性">三、原生js关于元素位置的属性</h3><p><strong>offsetLeft、offsetTop属性：只可获取，不可设置</strong>（类似jQuery的position()方法）。<br>相对于其第一个position值不为static的祖先元素来计算偏移量，返回number类型数值。</p>
+<p><strong>style.left、style.top:既可设置，也可获取。</strong><br>与offsetLeft、offsetTop属性相比，共同点：都是相对于其第一个position值不为static的祖先元素来计算偏移量；不同点：</p>
+<p>1.通过style,既可获取元素宽高，也可设置元素宽高<br>2.style.left/style.top返回的是字符串（包含单位）<br>3.要获取style.left/style.top需要事先定义，而且必须定义在html元素的内联样式里，否则获取到的值将为空。</p>
+<h3 id="四、原生js关于元素宽高的属性">四、原生js关于元素宽高的属性</h3><ol>
+<li><p>clientHeight和clientWidth：描述元素内尺寸，是指元素内容+内边距;</p>
+</li>
+<li><p>offsetHeight和offsetWidth用于描述元素外尺寸，是指 元素内容+内边距+边框，不包括外边距和滚动条部分。</p>
+</li>
+<li><p>offsetParent对象是指元素最近的定位祖先元素，递归上溯，如果没有祖先元素是定位的话，会返回null。</p>
+</li>
+<li><p>scrollWidth和scrollHeight:元素的内容区域+内边距+溢出尺寸，当内容正好和内容区域匹配没有溢出时，这些属性与clientWidth和clientHeight相等。</p>
+</li>
+</ol>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2016/04/05/客户端存储之H5 web存储/" title="客户端存储之HTML5 web存储" itemprop="url">客户端存储之HTML5 web存储</a>
   </h1>
   <p class="article-author">By
@@ -173,67 +244,6 @@
 <h3 id="500_-_599：服务器错误状态码">500 - 599：服务器错误状态码</h3><p>501 Not Implemented : 客户端发起的请求超出服务器的能力范围（比如：使用了服务器不支持的方法）</p>
 <p>502 Bad Gateway : 代理或网关出错</p>
 <p>505 ： 服务器收到的请求使用了它不支持的协议版本</p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2016/04/05/js、jQuery下设置获取位置宽高方法的区别总结/" title="谈谈jQuery和js里有关元素位置和宽高的方法" itemprop="url">谈谈jQuery和js里有关元素位置和宽高的方法</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="xmx" target="_blank" itemprop="author">xmx</a>
-		
-  <p class="article-time">
-    <time datetime="2016-04-05T05:08:07.168Z" itemprop="datePublished"> 发表于 2016-04-05</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>总结一下jQuery、原生js设置和获取位置、宽高的方法。</p>
-<hr>
-<h3 id="一、jQuery关于元素位置的方法">一、jQuery关于元素位置的方法</h3><p><strong>position() 方法：只能获取，不能设置。</strong><br>可获取元素相对于其第一个position值不为static的祖先元素的偏移量，如果没有，则是相对于文档的偏移量；返回一个对象，包括两个属性:left，top; 属性值无单位，number类型。具体用法：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(element).position().left; <span class="comment">//获取元素相对于其第一个position值不为static的祖先元素的偏移量</span></span><br></pre></td></tr></table></figure></p>
-<p><strong>offset()方法：既能获取，也能设置。</strong><br>获取和设置元素相对于文档的偏移量。获取时返回一个对象，包括两个属性：left，top。属性值无单位，number类型；设置时给方法传入一个对象，可包括属性top,left；具体用法：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$(elemment).offset().left; <span class="comment">//获取元素相对于文档的偏移量   </span></span><br><span class="line">$(element).offset(&#123;top:<span class="number">200</span>,left:<span class="number">100</span>&#125;); <span class="comment">//设置元素相对于文档的偏移量</span></span><br></pre></td></tr></table></figure></p>
-<p><strong>scrollLeft()、scrollTop(),滚动方法：既能获取，也能设置。</strong><br>可以获取和设置元素从顶部或者左侧已经滚动的值,获取时返回number类型的数值，设置时给方法传递一个数字参数。具体用法：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$(element).scrollLeft(); <span class="comment">//获取元素滚动的left值  </span></span><br><span class="line">$(element).scrollLeft(<span class="number">200</span>); <span class="comment">//设置元素滚动的left值</span></span><br></pre></td></tr></table></figure></p>
-<h3 id="二、jQuery关于元素宽高的方法">二、jQuery关于元素宽高的方法</h3><p><strong>width()、height() 方法：既能获取，也能设置。</strong><br>可获取和设置元素的宽度和高度。获取时，返回number类型；设置时，给方法传入数值类型的参数即可。具体用法：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$(element).width(); <span class="comment">//获取元素宽度    </span></span><br><span class="line">$(element).width(<span class="number">200</span>); <span class="comment">//设置元素宽度</span></span><br></pre></td></tr></table></figure></p>
-<p><strong>innerWidth()、innerHight()方法：只能获取，不能设置。</strong><br>可获取第一个匹配元素的内部宽度和高度，例如获取元素内部宽度时，包括width+padding,不包括border。</p>
-<p><strong>outerWidth()、outerHight()方法：只能获取，不能设置。</strong><br>可获取第一个匹配元素的外部宽度和高度，有两种情况: （用获取元素外部宽度来举例）<br>1.当方法内部不指定参数或者参数为false时，包括width+padding+margin;<br>2.当方法内部参数为true时，包括width+padding+border+margin；</p>
-<p><strong>css()方法：既可获取，也可设置。</strong><br>可以获取和设置元素的宽高（当然也可获取和设置其他css属性，这里只是为了与其他几种设置获取元素宽高的方法做对比），当获取元素的宽高时，返回一个单位为px的string字符串；当设置元素宽高时，给css()方法传入对象，对象里面包含width\height属性；具体用法：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$(element).css(<span class="string">'width'</span>); <span class="comment">//获取元素宽度  </span></span><br><span class="line">$(element).css(&#123;width:<span class="string">'200px'</span>,height:<span class="string">'300px'</span>&#125;);<span class="comment">//设置元素的宽度和高度，也可以不要引号和单位</span></span><br></pre></td></tr></table></figure></p>
-<h3 id="三、原生js关于元素位置的属性">三、原生js关于元素位置的属性</h3><p><strong>offsetLeft、offsetTop属性：只可获取，不可设置</strong>（类似jQuery的position()方法）。<br>相对于其第一个position值不为static的祖先元素来计算偏移量，返回number类型数值。</p>
-<p><strong>style.left、style.top:既可设置，也可获取。</strong><br>与offsetLeft、offsetTop属性相比，共同点：都是相对于其第一个position值不为static的祖先元素来计算偏移量；不同点：</p>
-<p>1.通过style,既可获取元素宽高，也可设置元素宽高<br>2.style.left/style.top返回的是字符串（包含单位）<br>3.要获取style.left/style.top需要事先定义，而且必须定义在html元素的内联样式里，否则获取到的值将为空。</p>
 
         
         
