@@ -81,6 +81,59 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2016/04/14/将类数组对象转化成数组对象的三种方法/" title="将类数组对象转化成数组对象的几种方法" itemprop="url">将类数组对象转化成数组对象的几种方法</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="xmx" target="_blank" itemprop="author">xmx</a>
+		
+  <p class="article-time">
+    <time datetime="2016-04-14T14:55:23.353Z" itemprop="datePublished"> 发表于 2016-04-14</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>今天遇到一个问题，发现在操作类数组对象时特别不方便，于是就想到能否将类数组对象转化成数组对象，然后再利用数组对象强大又便捷的方法来操作呢？然后…然后在寻找解决方法的时候我就被自己蠢哭了…事情是这样发展的：</p>
+<h3 id="Array-prototype-slice-call(arrayLike)">Array.prototype.slice.call(arrayLike)</h3><p>这是我在网上搜的,原文请戳这儿<a href="http://www.jianshu.com/p/f8466e83cef0" target="_blank" rel="external">http://www.jianshu.com/p/f8466e83cef0</a>，原理是数组的slice()方法可以从已有数组中返回一个新数组，它可以接受两个参数arr.slice(start,end)。<br>start:第一个参数规定从何处开始选取<br>end:第二个参数表示从何处选取结束<br>如果不传参将返回原数组的一个副本，但该方法不会修改原数组，而是返回截取的新数组，根据这个就可以将类数组转化成数组对象啦！<br>然后楼主又说了，既然slice方法可以那splice方法可不可以呢，当然可以，但是蠢哭的我对此产生了质疑！！<br><img src="http://img.blog.csdn.net/20160414222603729" alt="ahaha"><br>求楼主的心理阴影面积…但是在质疑过程中自己学会分析问题并动手测试寻找证明和解决方法，我认为偶尔蠢一下还是值得的。</p>
+<h3 id="Array-prototype-splice-call(arrayLike,0)">Array.prototype.splice.call(arrayLike,0)</h3><p>这种方式的原理和slice(start,end)方法差不多，都是通过返回一个新的数组来将类数组对象转化成数组，区别在于(我谈区别只是希望下次不要又头脑混乱splice/slice傻傻记不清)：<br>1.splice(start,count,item)方法传入的参数不同，第一个参数代表开始选取的元素位置，第二个说明选取的元素数量(不传说明从第一个参数位置开始到数组的最后一个元素)，第三个参数代表需要添加的元素(将会添加到第一个参数位置上)。<br>2.splice()方法删除/代替/添加元素之后将会影响到原来的数组，而slice()则不会影响。</p>
+<h3 id="循环遍历类数组对象，push到新创建的数组对象里">循环遍历类数组对象，push到新创建的数组对象里</h3><p>这是自己想出来的方法。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> length = arrayLike.length;</span><br><span class="line"><span class="keyword">var</span> arr = [];</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; length; i++) &#123;</span><br><span class="line">	arr.push(arrayLike[i]);</span><br><span class="line">	<span class="keyword">return</span> arr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2016/04/11/js、jQuery下设置获取位置宽高方法的区别总结/" title="谈谈jQuery和js里有关元素位置和宽高的方法" itemprop="url">谈谈jQuery和js里有关元素位置和宽高的方法</a>
   </h1>
   <p class="article-author">By
@@ -670,120 +723,6 @@
 <p>若在执行git push origin master时，报错：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">error:failed to push som refs to.......</span><br></pre></td></tr></table></figure></p>
 <p>则执行以下语句：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull origin master</span><br></pre></td></tr></table></figure></p>
 <p>先把远程服务器github上面的文件拉先来，再执行git push origin master</p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/11/13/Sublime Text如何快速安装插件/" title="SublimeText下如何安装插件" itemprop="url">SublimeText下如何安装插件</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="xmx" target="_blank" itemprop="author">xmx</a>
-		
-  <p class="article-time">
-    <time datetime="2015-11-13T09:09:24.805Z" itemprop="datePublished"> 发表于 2015-11-13</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>Sublime Text使用已久，最近突然觉得自己编码速度太慢，于是搜寻了sublime Text各种插件的安装及使用，有插件果然编码效率大大提高，现把我安装所遇到的问题及如何提高编码速度分享给大家，共勉。</p>
-<h3 id="一、安装package_control">一、安装package control</h3><p>a)   <a href="https://packagecontrol.io/" target="_blank" rel="external">https://packagecontrol.io/</a></p>
-<p>b)  点击右上角的Install Now</p>
-<p>c)  显示如下：选择版本（我这里是sublime Text 2,ST3复制选项卡里的另一段代码）,复制灰色部分代码<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import urllib.request,os,hashlib; h = <span class="string">'2915d1851351e5ee549c20394736b442'</span> + <span class="string">'8bc59f460fa1548d1514676163dafc88'</span>; pf = <span class="string">'Package Control.sublime-package'</span>; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( <span class="string">'http://packagecontrol.io/'</span> + pf.replace(<span class="string">' '</span>, <span class="string">'%20'</span>)).read(); dh = hashlib.sha256(by).hexdigest(); <span class="keyword">print</span>(<span class="string">'Error validating download (got %s instead of %s), please try manual install'</span> % (dh, h)) <span class="keyword">if</span> dh != h <span class="keyword">else</span> open(os.path.join( ipp, pf), <span class="string">'wb'</span> ).write(by)</span><br></pre></td></tr></table></figure></p>
-<p>d)  打开Sublime Text, 查看（View）–&gt;显示/隐藏控制台–&gt;粘贴刚刚复制的代码到最下面的输入区，回车</p>
-<p>e)  重启sublime编辑器，然后Ctrl+shift+p ：启动命令模式</p>
-<p>f)  在命令框输入pc或者package control( 支持模糊匹配 )，可以看到很多命令，下面介绍下常用的命令</p>
-<pre><code><span class="operator"><span class="keyword">Install</span> <span class="keyword">package</span>:安装新插件
-
-<span class="keyword">List</span> packages:列出已安装过的软件包
-
-Remove <span class="keyword">package</span>:删除不必要的软件包
-
-<span class="keyword">Disable</span> packages:禁用不必要的软件包</span>
-</code></pre><h3 id="二、插件安装失败的解决方法">二、插件安装失败的解决方法</h3><p>问题描述：进入package control :install package显示：There are no packages available for installation。</p>
-<p>据StackOverflow上说是IPv6造成，如果我们的Intent服务提供者（ISP）不支持IPv6就会引发上述错误，具体请参考：</p>
-<p><a href="http://stackoverflow.com/questions/25105139/sublime-text-2-there-are-no-packages-available-for-installation" target="_blank" rel="external">http://stackoverflow.com/questions/25105139/sublime-text-2-there-are-no-packages-available-for-installation</a></p>
-<p>解决方法：</p>
-<p>1、打开C:\Windows\system32\drivers\etc\hosts文件，在尾部增加如下代码：<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="header"># to solve sublime Text IPv6</span></span><br><span class="line">50.116.34.243          sublime.wbond.net</span><br><span class="line"><span class="header">#end</span></span><br></pre></td></tr></table></figure></p>
-<p>2、ctrl+shift+p，再次输入package control:install package 即可</p>
-<p>//注：如果这一步不成功，可remove掉安装过的package control 再按照上面的步骤重新安装package control.再重复第二步</p>
-<h3 id="三、插件安装及使用">三、插件安装及使用</h3><p>插件安装方法：都通过Package Control</p>
-<p>1、shift + cmd + p 打开命令面板</p>
-<p>2、输入 “Package Control: Install Package” 命令,回车</p>
-<p>3、输入安装插件的简写或全拼,找到后回车安装</p>
-<h5 id="安装主题">安装主题</h5><p>1、  进入<a href="https://packagecontrol.io/" target="_blank" rel="external">https://packagecontrol.io/</a>网站，在label下的theme里查看主题样式，选择想要安装的主题</p>
-<p>2、  切换到sublime编辑器，ctrl+shift+p进入命令模式，输入pci或package control install然后回车</p>
-<p>3、  输入theme-主题名称</p>
-<p>4、  进入Sublime Text &gt; 首选项（Preferences ）&gt; MonokaiJSON+（主题可更改）</p>
-<p>5、  切换主题成功。当然，如果sublime Text里默认有的主题直接选择主题进行切换即可。</p>
-<h5 id="使用snippet">使用snippet</h5><p>在编码过程中使用snippet能使我们的编码更快并保持良好的编码风格</p>
-<p>//注：我们不可能一开始就知道所有snippet插件的功能以及使用方法，可以进入官方网站<a href="https://packagecontrol.io/" target="_blank" rel="external">https://packagecontrol.io/</a>, Labels–&gt;snippet进行查询</p>
-<p>Ctrl+shift_+p启动命令模式，输入snippet,可选择函数等。</p>
-<p>以function为例：</p>
-<p>这时可以修改函数名，通过tab键跳到参数修改参数，再通过tab键跳到函数体内</p>
-<p>省去了光标移动的麻烦。</p>
-<p>我们在编辑器中输入fun+Enter可以完成跟刚才相同的操作</p>
-<p>我们输入ife+Enter可以完成if-else的结构</p>
-<h5 id="安装javascript_&amp;NodeJs_snippet插件">安装javascript &amp;NodeJs snippet插件</h5><p>安装方式与上雷同，这时就可以在代码区域输入简写以模糊匹配，比如：输入gi可模糊匹配document.getElementById().</p>
-<p>相同的步骤还可安装jQuery的snippet插件</p>
-<h5 id="其他插件：">其他插件：</h5><p>1、管理更新类库：Nettuts+ Fetch</p>
-<p>2、语法校验</p>
-<pre><code>a)  安装<span class="keyword">sublimeLinter
-</span>
-<span class="keyword">b) </span> 安装<span class="keyword">sublime-jshint</span>
-</code></pre><p>3、Sublime Prefixr</p>
-<pre><code>Prefixr，CSS3 私有前缀自动补全插件，显然也很有用哇
-</code></pre><p>4、Sublime CodeIntel</p>
-<pre><code>代码自动提示
-</code></pre><p>5、Bracket Highlighter</p>
-<pre><code>类似于代码匹配，可以匹配括号，引号等符号内的范围。
-</code></pre><p>6、DocBlockr ：快速添加注释</p>
-<pre><code>安装好后在代码区输入/<span class="keyword">*</span> +Enter 自动补全注释块,/<span class="keyword">*</span><span class="keyword">*</span> +Enter自动补全注释块，且每行行首<span class="keyword">*</span>都会跟下来
-</code></pre><h3 id="四、Sublime_Text快捷键：">四、Sublime Text快捷键：</h3><p>ctrl+N :新建文件</p>
-<p>ctrl+shift+V ：保持缩进的粘贴内容</p>
-<p>ctrl+P : go to anything转到任何的快捷键</p>
-<p>//在css文件下，在go to anything输入框输入@+id/class名，立即转到该id/class下</p>
-<p>//go to anything 后：在输入框输入 #标记：可快速进入页面的某一标签</p>
-<p>ctrl+shift+P:启动命令模式</p>
-<p>ctrl+shift+P :SSJ/SSH/SSC等 切换模式（支持模糊匹配）<br>!+ctrl+E ：快速生成html的基础标记</p>
-<p>ctrl+D：多行游标功能 //选中关键字或者标记之后，ctrl+D</p>
-<p>alt+C ：回掉函数的快捷键 // 前提是已经安装insert callback 插件</p>
-<p>script+ctrl+E ：即可产生封闭的script标签 //script可换成其他标签即可生成其他封闭的标签</p>
-<p>选中内容 ctrl+ } ：增加缩进  ctrl+{ : 减少缩进</p>
-<p>ul&gt;.items$*10,ctrl+E :在ul下生成10个class名为items的li元素</p>
 
         
         
