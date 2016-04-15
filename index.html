@@ -81,27 +81,25 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/04/14/将类数组对象转化成数组对象的三种方法/" title="将类数组对象转化成数组对象的几种方法" itemprop="url">将类数组对象转化成数组对象的几种方法</a>
+      <a href="/2016/04/15/将类数组对象转化成数组对象的三种方法/" title="将类数组对象转化成数组对象的几种方法" itemprop="url">将类数组对象转化成数组对象的几种方法</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="xmx" target="_blank" itemprop="author">xmx</a>
 		
   <p class="article-time">
-    <time datetime="2016-04-14T14:55:23.353Z" itemprop="datePublished"> 发表于 2016-04-14</time>
+    <time datetime="2016-04-15T07:05:57.529Z" itemprop="datePublished"> 发表于 2016-04-15</time>
     
   </p>
 </header>
     <div class="article-content">
         
-        <p>今天遇到一个问题，发现在操作类数组对象时特别不方便，于是就想到能否将类数组对象转化成数组对象，然后再利用数组对象强大又便捷的方法来操作呢？然后…然后在寻找解决方法的时候我就被自己蠢哭了…事情是这样发展的：</p>
-<h3 id="Array-prototype-slice-call(arrayLike)">Array.prototype.slice.call(arrayLike)</h3><p>这是我在网上搜的,原文请戳这儿<a href="http://www.jianshu.com/p/f8466e83cef0" target="_blank" rel="external">http://www.jianshu.com/p/f8466e83cef0</a>，原理是数组的slice()方法可以从已有数组中返回一个新数组，它可以接受两个参数arr.slice(start,end)。<br>start:第一个参数规定从何处开始选取<br>end:第二个参数表示从何处选取结束<br>如果不传参将返回原数组的一个副本，但该方法不会修改原数组，而是返回截取的新数组，根据这个就可以将类数组转化成数组对象啦！<br>然后楼主又说了，既然slice方法可以那splice方法可不可以呢，当然可以，但是蠢哭的我对此产生了质疑！！<br><img src="http://img.blog.csdn.net/20160414222603729" alt="ahaha"><br>求楼主的心理阴影面积…但是在质疑过程中自己学会分析问题并动手测试寻找证明和解决方法，我认为偶尔蠢一下还是值得的。</p>
-<h3 id="Array-prototype-splice-call(arrayLike,0)">Array.prototype.splice.call(arrayLike,0)</h3><p>这种方式的原理和slice(start,end)方法差不多，都是通过返回一个新的数组来将类数组对象转化成数组，区别在于(我谈区别只是希望下次不要又头脑混乱splice/slice傻傻记不清)：<br>1.splice(start,count,item)方法传入的参数不同，第一个参数代表开始选取的元素位置，第二个说明选取的元素数量(不传说明从第一个参数位置开始到数组的最后一个元素)，第三个参数代表需要添加的元素(将会添加到第一个参数位置上)。<br>2.splice()方法删除/代替/添加元素之后将会影响到原来的数组，而slice()则不会影响。</p>
-<h3 id="循环遍历类数组对象，push到新创建的数组对象里">循环遍历类数组对象，push到新创建的数组对象里</h3><p>这是自己想出来的方法。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> length = arrayLike.length;</span><br><span class="line"><span class="keyword">var</span> arr = [];</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; length; i++) &#123;</span><br><span class="line">	arr.push(arrayLike[i]);</span><br><span class="line">	<span class="keyword">return</span> arr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
+        <p>今天遇到一个问题，发现在操作类数组对象时特别不方便，于是就想到能否将类数组对象转化成数组对象，然后再利用数组对象强大又便捷的方法来操作呢？然后…然后在寻找解决方法的时候就被自己蠢哭了…</p>
         
         
         <p class="article-more-link">
+          
+            <a href="/2016/04/15/将类数组对象转化成数组对象的三种方法/#more">Read More</a>
           
        </p>
     </div>
@@ -810,6 +808,10 @@
     <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=3941548463&verifier=xmixue&dpc=1"></iframe>
 </div>
 
+
+  
+
+  
 
 </aside>
 </div>
