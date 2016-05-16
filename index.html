@@ -80,25 +80,84 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/05/16/判断数据类型的几种方法及应用场景分析 /" title="判断数据类型的几种方法及应用场景分析" itemprop="url">判断数据类型的几种方法及应用场景分析</a>
+      <a href="/2016/05/16/js判断数据类型的几种方法及应用场景分析/" title="js判断数据类型的几种方法及应用场景分析" itemprop="url">js判断数据类型的几种方法及应用场景分析</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="xmx" target="_blank" itemprop="author">xmx</a>
 		
   <p class="article-time">
-    <time datetime="2016-05-16T09:49:04.912Z" itemprop="datePublished"> 发表于 2016-05-16</time>
+    <time datetime="2016-05-16T13:57:02.902Z" itemprop="datePublished"> 发表于 2016-05-16</time>
     
   </p>
 </header>
     <div class="article-content">
         
-        <p>最近在做知识整理，把自己从前看过的东西做了分类和处理，希望可以形成自己的知识管理库。从前习惯用笔记本这种传统方式来记笔记，但最近发现要记的东西越来越多了之后，这种方式的效率越来越低，并且不利于维护和管理。听朋友说百度脑图（一款在线的思维导图软件）不错，用了之后觉得除了频繁弹出’500出错了’这件事儿，其他各方面还算满意，进入正文啦。<br>今天来谈谈判断数据类型的几种方法及每种方法的应用场景分析。个人能力有限，说的不对的地方欢迎指出，不要打我就好。先上图：<br><img src="http://img.blog.csdn.net/20160516171924782?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="判断数据类型的几种方法"></p>
+        <p>最近在做知识整理，把自己从前看过的东西做了分类和处理，希望可以形成自己的知识管理库。从前习惯用笔记本这种传统方式来记笔记，但最近发现要记的东西越来越多了之后，这种方式的效率越来越低，并且不利于维护和管理。听朋友说百度脑图（一款在线的思维导图软件）不错，用了之后觉得除了频繁弹出’500出错了’这件事儿，其他各方面还算满意，进入正文啦。<br>今天来谈谈判断数据类型的几种方法及每种方法的应用场景分析。个人能力有限，说的不对的地方欢迎指出。先上图：<br><img src="http://img.blog.csdn.net/20160516171924782?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="js判断数据类型的几种方法"></p>
         
         
         <p class="article-more-link">
           
-            <a href="/2016/05/16/判断数据类型的几种方法及应用场景分析 /#more">Read More</a>
+            <a href="/2016/05/16/js判断数据类型的几种方法及应用场景分析/#more">Read More</a>
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/05/16/客户端存储之H5 web存储/" title="客户端存储之HTML5 web存储" itemprop="url">客户端存储之HTML5 web存储</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="xmx" target="_blank" itemprop="author">xmx</a>
+		
+  <p class="article-time">
+    <time datetime="2016-05-16T13:56:09.705Z" itemprop="datePublished"> 发表于 2016-05-16</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>最近在学习如何实现客户端存储，这篇文章将主要分析H5的web storage以及它与传统的cookie之间的区别。<br><img src="http://img.blog.csdn.net/20160405214318198?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="客户端存储"></p>
+<h3 id="web存储与cookie的区别以及优势：">web存储与cookie的区别以及优势：</h3><p>1、cookie只适合存储少量文本数据，而web存储可存储大量数据</p>
+<p>2、以cookie存储的数据，无论服务器端是否需要，每次HTTP请求时，都会将cookie数据传送到服务端，有时会造成带宽浪费，而web storage 中的数据只会存储在本地</p>
+<p>3、web storage有更加丰富易用的接口，比如setItem()、getItem()、removeItem()、clear()等，使数据操作更简便；而cookie没有提供，需要通过document对象的cookie属性来完成</p>
+<p>4、兼容性差异：cookie所有浏览器都支持，而web storage 在IE8下不支持</p>
+<p>5、cookie默认的有效期很短暂，一旦用户关闭浏览器，cookie保存的数据就丢失了；但一旦设置cookie有效期，数据则会一直保存直到 失效期。在这点上，它与sessionStorage的区别是：cookie作用域不是局限在浏览器的单个标签页，而是整个浏览器进程。</p>
+<h3 id="web_存储_:_localStorage、sessionStorage">web 存储 : localStorage、sessionStorage</h3><p>web存储定义了两种对象：localStorage、sessionStorage，二者是以windows对象的属性形式存在，对于IE8以前的浏览器，可以用IE的userData作为H5 web存储的替代方案。</p>
+<h3 id="localStorage与sessionStorage区别：">localStorage与sessionStorage区别：</h3><p>二者的区别主要体现在有效期和作用域上。</p>
+<p>1、在有效期上，localStorage是永久性的，除非用户或者开发者刻意删除，否则数据将一直存储在用户电脑上。而sessionStorage一旦窗口或者标签页关闭，通过sessionStorage存储的数据也将被删除。</p>
+<p>2、在作用域上，二者都会受到文档源额限制，也就是说，非同源文档之间是无法共享本地存储的数据的；除了文档源额限制，localStorage还 会受到浏览器厂商的限制。举例来说，当前用Firefox打开一个站点，下次用Chrome打开同一站点，也无法访问上次存储的数据；除了文档源额限 制，sessionStorage还会受到窗口的限制。也就是说，即使是同源文档在浏览器的不同标签页时，他互相之间拥有的也是各自的 sessoionStorage对象。</p>
+
+        
+        
+        <p class="article-more-link">
           
        </p>
     </div>
@@ -215,65 +274,6 @@
 <li><p>scrollWidth和scrollHeight:元素的内容区域+内边距+溢出尺寸，当内容正好和内容区域匹配没有溢出时，这些属性与clientWidth和clientHeight相等。</p>
 </li>
 </ol>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2016/04/05/客户端存储之H5 web存储/" title="客户端存储之HTML5 web存储" itemprop="url">客户端存储之HTML5 web存储</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="xmx" target="_blank" itemprop="author">xmx</a>
-		
-  <p class="article-time">
-    <time datetime="2016-04-05T13:57:08.550Z" itemprop="datePublished"> 发表于 2016-04-05</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>最近在学习如何实现客户端存储，这篇文章将主要分析H5的web storage以及它与传统的cookie之间的区别。<br><img src="http://img.blog.csdn.net/20160405214318198?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="客户端存储"></p>
-<h3 id="web存储与cookie的区别以及优势：">web存储与cookie的区别以及优势：</h3><p>1、cookie只适合存储少量文本数据，而web存储可存储大量数据</p>
-<p>2、以cookie存储的数据，无论服务器端是否需要，每次HTTP请求时，都会将cookie数据传送到服务端，有时会造成带宽浪费，而web storage 中的数据只会存储在本地</p>
-<p>3、web storage有更加丰富易用的接口，比如setItem()、getItem()、removeItem()、clear()等，使数据操作更简便；而cookie没有提供，需要通过document对象的cookie属性来完成</p>
-<p>4、兼容性差异：cookie所有浏览器都支持，而web storage 在IE8下不支持</p>
-<p>5、cookie默认的有效期很短暂，一旦用户关闭浏览器，cookie保存的数据就丢失了；但一旦设置cookie有效期，数据则会一直保存直到 失效期。在这点上，它与sessionStorage的区别是：cookie作用域不是局限在浏览器的单个标签页，而是整个浏览器进程。</p>
-<h3 id="web_存储_:_localStorage、sessionStorage">web 存储 : localStorage、sessionStorage</h3><p>web存储定义了两种对象：localStorage、sessionStorage，二者是以windows对象的属性形式存在，对于IE8以前的浏览器，可以用IE的userData作为H5 web存储的替代方案。</p>
-<h3 id="localStorage与sessionStorage区别：">localStorage与sessionStorage区别：</h3><p>二者的区别主要体现在有效期和作用域上。</p>
-<p>1、在有效期上，localStorage是永久性的，除非用户或者开发者刻意删除，否则数据将一直存储在用户电脑上。而sessionStorage一旦窗口或者标签页关闭，通过sessionStorage存储的数据也将被删除。</p>
-<p>2、在作用域上，二者都会受到文档源额限制，也就是说，非同源文档之间是无法共享本地存储的数据的；除了文档源额限制，localStorage还 会受到浏览器厂商的限制。举例来说，当前用Firefox打开一个站点，下次用Chrome打开同一站点，也无法访问上次存储的数据；除了文档源额限 制，sessionStorage还会受到窗口的限制。也就是说，即使是同源文档在浏览器的不同标签页时，他互相之间拥有的也是各自的 sessoionStorage对象。</p>
 
         
         
