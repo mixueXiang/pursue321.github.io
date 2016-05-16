@@ -61,11 +61,10 @@
 					
 					<li>
  					
-					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
-						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
-						<input type="hidden" name="q" value="site:yoursite.com">
-					</form>
+						<form class="search" action="http://zhannei.baidu.com/cse/search" target="_blank">
+							<label>Search</label>
+						<input name="s" type="hidden" value= null ><input type="text" name="q" size="30" placeholder="搜索"><br>
+						</form>
 					
 					</li>
 				</ul>
@@ -74,6 +73,91 @@
     </header>
     <div id="container">
       <div id="main">
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/03/06/如何结合git和gitHub上传项目文件/" title="如何结合git和github上传项目文件" itemprop="url">如何结合git和github上传项目文件</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="xmx" target="_blank" itemprop="author">xmx</a>
+		
+  <p class="article-time">
+    <time datetime="2016-03-06T09:18:03.309Z" itemprop="datePublished"> 发表于 2016-03-06</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>加入github有一段时日了，但一直没怎么活跃。写这篇小文章一是分享自己的一些经验，二是给大脑存个备份（高考过后记忆力刷刷下滑，说不定哪天又忘了…）。<br>以下是具体步骤，主要针对windows用户。</p>
+<h3 id="一、准备工作">一、准备工作</h3><p>ps:对于已经安装过git,创建过ssh密钥并拥有github账号的可以直接忽略准备工作</p>
+<ul>
+<li><p>下载安装git</p>
+</li>
+<li><p>git的初始配置</p>
+</li>
+</ul>
+<p>git config –global user.name “your name”<br>git config –global user.email “your email”</p>
+<ul>
+<li><p>注册github账号</p>
+</li>
+<li><p>创建并提交ssh密钥</p>
+</li>
+</ul>
+<p>回到桌面，右击鼠标，打开git Bash，输入以下命令然后enter几下 </p>
+<p>ssh-keygen -C ‘your@email.address’ -t rsa</p>
+<p>进入github首页——右上角settings——SSH Keys——add ssh key<br>进入C盘——用户——.ssh文件夹——打开id_rsa.pub，复制里面的内容<br>在add ssh key——key下面的输入框粘贴已经复制的密钥内容——点击Add key  </p>
+<h3 id="二、建立仓库">二、建立仓库</h3><p>登录 进入github首页——点击右上角的“+”号——New repository——填好仓库名称及描述，建议勾选Initialize this repository with a README，可以简化操作——点击Create repository,创建成功。</p>
+<h3 id="三、初始化项目">三、初始化项目</h3><p>1、找到需要上传至github托管的项目根目录，右击git Bash here,进入git命令行,输入命令</p>
+<p>git init</p>
+<p>这样在你的项目目录下就会有一个.git的隐藏目录</p>
+<p>2、输入命令</p>
+<p>git add .</p>
+<p>add后面的“.”是添加该目录下所有文件的情况，也可以添加特定文件，比如git add somedoc.txt</p>
+<p>3、提交到本地仓库</p>
+<p>git commit -m ‘description for this commit’</p>
+<p>git commit -m后的字符串是对本次提交的描述       </p>
+<h3 id="四、上传代码">四、上传代码</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin https:<span class="comment">//github.com/pursue321/100duPractice.git</span></span><br></pre></td></tr></table></figure>
+<p>origin后面的是你自己的仓库地址，可以进入github首页——repository——进入创建好的仓库——复制https后面的地址<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin master</span><br></pre></td></tr></table></figure></p>
+<p>如果执行git remote add origin <a href="https://github.com/pursue321/100duPractice.git" target="_blank" rel="external">https://github.com/pursue321/100duPractice.git</a> ，出现错误：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fatal: remote origin already exists</span><br></pre></td></tr></table></figure></p>
+<p>则执行以下语句：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote rm origin</span><br></pre></td></tr></table></figure></p>
+<p>再往后执行git remote add origin <a href="https://github.com/pursue321/100duPractice.git" target="_blank" rel="external">https://github.com/pursue321/100duPractice.git</a> 即可。</p>
+<p>若在执行git push origin master时，报错：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">error:failed to push som refs to.......</span><br></pre></td></tr></table></figure></p>
+<p>则执行以下语句：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull origin master</span><br></pre></td></tr></table></figure></p>
+<p>先把远程服务器github上面的文件拉先来，再执行git push origin master</p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
 
    
     
@@ -272,12 +356,6 @@ Remove <span class="keyword">package</span>:删除不必要的软件包
   <div class="linkslist">
   <p class="asidetitle">友情链接</p>
     <ul>
-        
-          <li>
-            
-            	<a href="http://www.cnblogs.com/mixue/" target="_blank" title="博客园">博客园</a>
-            
-          </li>
         
           <li>
             

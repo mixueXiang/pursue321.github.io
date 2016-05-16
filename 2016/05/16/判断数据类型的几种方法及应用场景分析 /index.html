@@ -1,0 +1,455 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>判断数据类型的几种方法及应用场景分析 | the blog of xmx</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="xmx">
+    
+
+    
+    <meta name="description" content="最近在做知识整理，把自己从前看过的东西做了分类和处理，希望可以形成自己的知识管理库。从前习惯用笔记本这种传统方式来记笔记，但最近发现要记的东西越来越多了之后，这种方式的效率越来越低，并且不利于维护和管理。听朋友说百度脑图（一款在线的思维导图软件）不错，用了之后觉得除了频繁弹出’500出错了’这件事儿，其他各方面还算满意，进入正文啦。今天来谈谈判断数据类型的几种方法及每种方法的应用场景分析。个人能力">
+<meta property="og:type" content="article">
+<meta property="og:title" content="判断数据类型的几种方法及应用场景分析">
+<meta property="og:url" content="http://yoursite.com/2016/05/16/判断数据类型的几种方法及应用场景分析 /index.html">
+<meta property="og:site_name" content="the blog of xmx">
+<meta property="og:description" content="最近在做知识整理，把自己从前看过的东西做了分类和处理，希望可以形成自己的知识管理库。从前习惯用笔记本这种传统方式来记笔记，但最近发现要记的东西越来越多了之后，这种方式的效率越来越低，并且不利于维护和管理。听朋友说百度脑图（一款在线的思维导图软件）不错，用了之后觉得除了频繁弹出’500出错了’这件事儿，其他各方面还算满意，进入正文啦。今天来谈谈判断数据类型的几种方法及每种方法的应用场景分析。个人能力">
+<meta property="og:image" content="http://img.blog.csdn.net/20160516171924782?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
+<meta property="og:updated_time" content="2016-05-16T09:49:04.912Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="判断数据类型的几种方法及应用场景分析">
+<meta name="twitter:description" content="最近在做知识整理，把自己从前看过的东西做了分类和处理，希望可以形成自己的知识管理库。从前习惯用笔记本这种传统方式来记笔记，但最近发现要记的东西越来越多了之后，这种方式的效率越来越低，并且不利于维护和管理。听朋友说百度脑图（一款在线的思维导图软件）不错，用了之后觉得除了频繁弹出’500出错了’这件事儿，其他各方面还算满意，进入正文啦。今天来谈谈判断数据类型的几种方法及每种方法的应用场景分析。个人能力">
+
+    
+    <link rel="alternative" href="http://github.com/pursue321.atom## RSS address." title="the blog of xmx" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="the blog of xmx" title="the blog of xmx"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="the blog of xmx">the blog of xmx</a></h1>
+				<h2 class="blog-motto">今天能做的事，不要拖到明天去做</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+						<form class="search" action="http://zhannei.baidu.com/cse/search" target="_blank">
+							<label>Search</label>
+						<input name="s" type="hidden" value= null ><input type="text" name="q" size="30" placeholder="搜索"><br>
+						</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/05/16/判断数据类型的几种方法及应用场景分析 /" title="判断数据类型的几种方法及应用场景分析" itemprop="url">判断数据类型的几种方法及应用场景分析</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="xmx" target="_blank" itemprop="author">xmx</a>
+		
+  <p class="article-time">
+    <time datetime="2016-05-16T09:49:04.912Z" itemprop="datePublished"> 发表于 2016-05-16</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、typeof操作符判断数据类型"><span class="toc-number">1.</span> <span class="toc-text">一、typeof操作符判断数据类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、instanceof操作符判断数据类型"><span class="toc-number">2.</span> <span class="toc-text">二、instanceof操作符判断数据类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、Arrary-isArray()方法判断是否为数组"><span class="toc-number">3.</span> <span class="toc-text">三、Arrary.isArray()方法判断是否为数组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#四、Object-prototype-toString-call()精确判断数据类型"><span class="toc-number">4.</span> <span class="toc-text">四、Object.prototype.toString.call()精确判断数据类型</span></a></li></ol>
+		
+		</div>
+		
+		<p>最近在做知识整理，把自己从前看过的东西做了分类和处理，希望可以形成自己的知识管理库。从前习惯用笔记本这种传统方式来记笔记，但最近发现要记的东西越来越多了之后，这种方式的效率越来越低，并且不利于维护和管理。听朋友说百度脑图（一款在线的思维导图软件）不错，用了之后觉得除了频繁弹出’500出错了’这件事儿，其他各方面还算满意，进入正文啦。<br>今天来谈谈判断数据类型的几种方法及每种方法的应用场景分析。个人能力有限，说的不对的地方欢迎指出，不要打我就好。先上图：<br><img src="http://img.blog.csdn.net/20160516171924782?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="判断数据类型的几种方法"></p>
+ <a id="more"></a>
+<h3 id="一、typeof操作符判断数据类型">一、typeof操作符判断数据类型</h3><p>typeof返回的字符串（能够判断的数据类型）<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'string'</span></span><br><span class="line"><span class="string">'number'</span></span><br><span class="line"><span class="string">'boolean'</span></span><br><span class="line"><span class="string">'object'</span>:如果这个值是对象或者<span class="literal">null</span>(因为<span class="literal">null</span>被认为是一个空对象)</span><br><span class="line"><span class="string">'function'</span>：这个值是函数</span><br></pre></td></tr></table></figure></p>
+<p>因此可判断基本的数据类型，但无法判断引用类型（除了function类），也就是继承自object类型的具体类型，比如Array、Date、自定义类等。<br>特殊情况：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typeof</span> <span class="literal">null</span>  <span class="comment">// 'object'</span></span><br><span class="line"><span class="keyword">typeof</span> 未声明的变量/已声明未初始化的变量  <span class="comment">// 'undefined'</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="二、instanceof操作符判断数据类型">二、instanceof操作符判断数据类型</h3><p>a istanceof A :判断a是否是A的实例，其实是在判断a.<em>proto</em> === A.prototype,所以用这种方法判断数据类型存在一个问题，举例来说：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [];</span><br><span class="line">arr <span class="keyword">instanceof</span> <span class="built_in">Array</span> <span class="comment">// true</span></span><br><span class="line">arr <span class="keyword">instanceof</span> <span class="built_in">Object</span> <span class="comment">// true</span></span><br></pre></td></tr></table></figure></p>
+<p>原因：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">arr._proto_ === <span class="built_in">Array</span>.prototype;</span><br><span class="line"><span class="built_in">Array</span>.prototype._proto_ === <span class="built_in">Object</span>.prototype;</span><br><span class="line"><span class="built_in">Object</span>.prototype._proto_ === <span class="literal">null</span>;</span><br></pre></td></tr></table></figure></p>
+<p>基于原型链的查找机制。</p>
+<p>因此，我们用 instanceof 也不能完全精确的判断object类的具体数据类型。<br>确定原型和实例的关系还可以用isPrototypeOf()方法，跟instanceof类似，只要是原型链中出现过的原型都是该实例的原型。<br>使用instanceof判断数据类型还存在一个问题。当instanceof存在多个全局执行环境的情况下时会出现问题。比如网页中包含多个框架或者多个frame的情况。</p>
+<h3 id="三、Arrary-isArray()方法判断是否为数组">三、Arrary.isArray()方法判断是否为数组</h3><p>这是S5中新增的数组方法，用来检测数组类型。但在IE9以下浏览器不支持。可以解决当网页存在多个全局执行环境下用instanceof操作符判断类型的问题。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [];</span><br><span class="line"><span class="built_in">Array</span>.isArray(arr); <span class="comment">//true</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="四、Object-prototype-toString-call()精确判断数据类型">四、Object.prototype.toString.call()精确判断数据类型</h3><p>可以用来精确判断数据类型，包括Boolean、Number、String、Function、Array、Date、RegExp、Object、Error等类型。返回类似’[object type]‘的字符串，type指前面提到过的Boolean、String等类型。<br>缺点：无法检测开发人员自定义的构造函数创建的实例类型。<br>如：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> p1 = <span class="keyword">new</span> Person(<span class="string">'san'</span>);</span><br><span class="line"><span class="built_in">Object</span>.prototype.toString.call(p1) <span class="comment">//'[object Object]'</span></span><br></pre></td></tr></table></figure></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://yoursite.com/2016/05/16/判断数据类型的几种方法及应用场景分析 /" data-title="判断数据类型的几种方法及应用场景分析 | the blog of xmx" data-tsina="3941548463" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2016/04/15/将类数组对象转化成数组对象的三种方法/"  title="将类数组对象转化成数组对象的几种方法">
+ <strong>下一篇：</strong><br/> 
+ <span>将类数组对象转化成数组对象的几种方法
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、typeof操作符判断数据类型"><span class="toc-number">1.</span> <span class="toc-text">一、typeof操作符判断数据类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、instanceof操作符判断数据类型"><span class="toc-number">2.</span> <span class="toc-text">二、instanceof操作符判断数据类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、Arrary-isArray()方法判断是否为数组"><span class="toc-number">3.</span> <span class="toc-text">三、Arrary.isArray()方法判断是否为数组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#四、Object-prototype-toString-call()精确判断数据类型"><span class="toc-number">4.</span> <span class="toc-text">四、Object.prototype.toString.call()精确判断数据类型</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="github-card">
+<p class="asidetitle">Github 名片</p>
+<div class="github-card" data-github="pursue321" data-width="220" data-height="119" data-theme="medium">
+<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
+</div>
+  </div>
+
+
+
+  
+
+  
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="http://blog.csdn.net/mixue321" target="_blank" title="CSDN">CSDN</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="http://github.com/pursue321.atom## RSS address." target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+  <div class="weiboshow">
+  <p class="asidetitle">新浪微博</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=3941548463&verifier=xmixue&dpc=1"></iframe>
+</div>
+
+
+  
+
+  
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello ,I&#39;m xmx.This is my blog on github.  <br/>
+			Do what you say and say what you do.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/xmixue" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/pursue321" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		
+		
+		
+		
+		<a href="http://www.zhihu.com/people/Xmixue" target="_blank" class="icon-zhihu" title="知乎"></a>
+		
+		
+		
+		<a href="mailto:1499129662@qq.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+				<div class="cc-license">
+          <a href="http://creativecommons.org/licenses/by/4.0" class="cc-opacity" target="_blank">
+            <img src="/img/cc-by.svg" alt="Creative Commons" />
+          </a>
+        </div>
+    
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
+		
+		<a href="/about" target="_blank" title="xmx">xmx</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fe6d1f421bbc9962127a50488f9ed37d1' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
