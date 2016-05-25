@@ -11,22 +11,16 @@
     
 
     
-    <meta name="description" content="总结一下jQuery、原生js设置和获取位置、宽高的方法。又修改了一些内容，为什么记忆力下滑-_-…
-
-一、jQuery关于元素位置的方法position() 方法：只能获取，不能设置。可获取元素相对于其第一个position值不为static的祖先元素的偏移量，如果没有，则是相对于文档的偏移量；返回一个对象，包括两个属性:left，top; 属性值无单位，number类型。具体用法：1$(ele">
+    <meta name="description" content="总结一下jQuery、原生js设置和获取位置、宽高的方法。又修改了一些内容，为什么记忆力下滑-_-…">
 <meta property="og:type" content="article">
 <meta property="og:title" content="谈谈jQuery和js里有关元素位置和宽高的方法">
 <meta property="og:url" content="http://yoursite.com/2016/05/25/js、jQuery下设置获取位置宽高方法的区别总结/index.html">
 <meta property="og:site_name" content="the blog of xmx">
-<meta property="og:description" content="总结一下jQuery、原生js设置和获取位置、宽高的方法。又修改了一些内容，为什么记忆力下滑-_-…
-
-一、jQuery关于元素位置的方法position() 方法：只能获取，不能设置。可获取元素相对于其第一个position值不为static的祖先元素的偏移量，如果没有，则是相对于文档的偏移量；返回一个对象，包括两个属性:left，top; 属性值无单位，number类型。具体用法：1$(ele">
-<meta property="og:updated_time" content="2016-05-25T15:13:38.610Z">
+<meta property="og:description" content="总结一下jQuery、原生js设置和获取位置、宽高的方法。又修改了一些内容，为什么记忆力下滑-_-…">
+<meta property="og:updated_time" content="2016-05-25T15:24:30.560Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="谈谈jQuery和js里有关元素位置和宽高的方法">
-<meta name="twitter:description" content="总结一下jQuery、原生js设置和获取位置、宽高的方法。又修改了一些内容，为什么记忆力下滑-_-…
-
-一、jQuery关于元素位置的方法position() 方法：只能获取，不能设置。可获取元素相对于其第一个position值不为static的祖先元素的偏移量，如果没有，则是相对于文档的偏移量；返回一个对象，包括两个属性:left，top; 属性值无单位，number类型。具体用法：1$(ele">
+<meta name="twitter:description" content="总结一下jQuery、原生js设置和获取位置、宽高的方法。又修改了一些内容，为什么记忆力下滑-_-…">
 
     
     <link rel="alternative" href="http://github.com/pursue321.atom## RSS address." title="the blog of xmx" type="application/atom+xml">
@@ -92,7 +86,7 @@
 		<a href="/about" title="xmx" target="_blank" itemprop="author">xmx</a>
 		
   <p class="article-time">
-    <time datetime="2016-05-25T15:13:38.610Z" itemprop="datePublished"> 发表于 2016-05-25</time>
+    <time datetime="2016-05-25T15:24:30.560Z" itemprop="datePublished"> 发表于 2016-05-25</time>
     
   </p>
 </header>
@@ -106,7 +100,7 @@
 		</div>
 		
 		<p>总结一下jQuery、原生js设置和获取位置、宽高的方法。又修改了一些内容，为什么记忆力下滑-_-…</p>
-<hr>
+ <a id="more"></a>
 <h3 id="一、jQuery关于元素位置的方法">一、jQuery关于元素位置的方法</h3><p><strong>position() 方法：只能获取，不能设置。</strong><br>可获取元素相对于其第一个position值不为static的祖先元素的偏移量，如果没有，则是相对于文档的偏移量；返回一个对象，包括两个属性:left，top; 属性值无单位，number类型。具体用法：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(element).position().left; <span class="comment">//获取元素相对于其第一个position值不为static的祖先元素的偏移量</span></span><br></pre></td></tr></table></figure></p>
 <p><strong>offset()方法：既能获取，也能设置。</strong><br>获取和设置元素相对于文档的偏移量。获取时返回一个对象，包括两个属性：left，top。属性值无单位，number类型；设置时给方法传入一个对象，可包括属性top,left；具体用法：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$(elemment).offset().left; <span class="comment">//获取元素相对于文档的偏移量   </span></span><br><span class="line">$(element).offset(&#123;top:<span class="number">200</span>,left:<span class="number">100</span>&#125;); <span class="comment">//设置元素相对于文档的偏移量</span></span><br></pre></td></tr></table></figure></p>
 <p><strong>scrollLeft()、scrollTop(),滚动方法：既能获取，也能设置。</strong><br>可以获取和设置元素从顶部或者左侧已经滚动的值,获取时返回number类型的数值，设置时给方法传递一个数字参数。具体用法：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$(element).scrollLeft(); <span class="comment">//获取元素滚动的left值  </span></span><br><span class="line">$(element).scrollLeft(<span class="number">200</span>); <span class="comment">//设置元素滚动的left值</span></span><br></pre></td></tr></table></figure></p>
@@ -124,8 +118,9 @@
 </li>
 <li><p>scrollWidth和scrollHeight:元素的内容区域+内边距+溢出尺寸，当内容正好和内容区域匹配没有溢出时，这些属性与clientWidth和clientHeight相等。</p>
 </li>
+<li><p>style.width、style.height: 可以设置和获取元素的宽度和高度,要获取style.width/style.height需要事先定义，而且必须定义在html元素的内联样式里，否则获取到的值将为空。返回的是字符串(包含单位)。</p>
+</li>
 </ol>
-<p>4.style.width、style.height: 可以设置和获取元素的宽度和高度,要获取style.width/style.height需要事先定义，而且必须定义在html元素的内联样式里，否则获取到的值将为空。返回的是字符串(包含单位)。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
